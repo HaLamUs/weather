@@ -215,6 +215,11 @@
 				Base,
 			);
 			mainGroup = B897F8842C63F14700C80D88;
+			packageReferences = (
+				B897F8BA2C63FC2F00C80D88 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B897F8BB2C63FD2400C80D88 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B897F8BC2C63FDB400C80D88 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = B897F88E2C63F14700C80D88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -582,6 +587,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B897F8BA2C63FC2F00C80D88 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		B897F8BB2C63FD2400C80D88 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B897F8BC2C63FDB400C80D88 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = B897F8852C63F14700C80D88 /* Project object */;
 }
