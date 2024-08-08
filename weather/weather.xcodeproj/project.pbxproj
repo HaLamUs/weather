@@ -33,6 +33,24 @@
 		B8C11D3A2C651C2300C091C4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D362C651C2300C091C4 /* Api.swift */; };
 		B8C11D3B2C651C2300C091C4 /* Api+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D372C651C2300C091C4 /* Api+Extensions.swift */; };
 		B8C11D3D2C651C2300C091C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D392C651C2300C091C4 /* NetworkManager.swift */; };
+		B8C11D512C65284000C091C4 /* dayBrokenClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */; };
+		B8C11D522C65284000C091C4 /* dayClearSky.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3F2C65284000C091C4 /* dayClearSky.json */; };
+		B8C11D532C65284000C091C4 /* dayFewClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D402C65284000C091C4 /* dayFewClouds.json */; };
+		B8C11D542C65284000C091C4 /* dayMist.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D412C65284000C091C4 /* dayMist.json */; };
+		B8C11D552C65284000C091C4 /* dayRain.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D422C65284000C091C4 /* dayRain.json */; };
+		B8C11D562C65284000C091C4 /* dayScatteredClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D432C65284000C091C4 /* dayScatteredClouds.json */; };
+		B8C11D572C65284000C091C4 /* dayShowerRains.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D442C65284000C091C4 /* dayShowerRains.json */; };
+		B8C11D582C65284000C091C4 /* daySnow.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D452C65284000C091C4 /* daySnow.json */; };
+		B8C11D592C65284000C091C4 /* dayThunderstorm.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D462C65284000C091C4 /* dayThunderstorm.json */; };
+		B8C11D5A2C65284000C091C4 /* nightBrokenClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D472C65284000C091C4 /* nightBrokenClouds.json */; };
+		B8C11D5B2C65284000C091C4 /* nightClearSky.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D482C65284000C091C4 /* nightClearSky.json */; };
+		B8C11D5C2C65284000C091C4 /* nightFewClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D492C65284000C091C4 /* nightFewClouds.json */; };
+		B8C11D5D2C65284000C091C4 /* nightMist.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4A2C65284000C091C4 /* nightMist.json */; };
+		B8C11D5E2C65284000C091C4 /* nightRain.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4B2C65284000C091C4 /* nightRain.json */; };
+		B8C11D5F2C65284000C091C4 /* nightScatteredClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4C2C65284000C091C4 /* nightScatteredClouds.json */; };
+		B8C11D602C65284000C091C4 /* nightShowerRains.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4D2C65284000C091C4 /* nightShowerRains.json */; };
+		B8C11D612C65284000C091C4 /* nightSnow.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4E2C65284000C091C4 /* nightSnow.json */; };
+		B8C11D622C65284000C091C4 /* nightThunderstorm.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +112,24 @@
 		B8C11D362C651C2300C091C4 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B8C11D372C651C2300C091C4 /* Api+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Api+Extensions.swift"; sourceTree = "<group>"; };
 		B8C11D392C651C2300C091C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayBrokenClouds.json; sourceTree = "<group>"; };
+		B8C11D3F2C65284000C091C4 /* dayClearSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayClearSky.json; sourceTree = "<group>"; };
+		B8C11D402C65284000C091C4 /* dayFewClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayFewClouds.json; sourceTree = "<group>"; };
+		B8C11D412C65284000C091C4 /* dayMist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayMist.json; sourceTree = "<group>"; };
+		B8C11D422C65284000C091C4 /* dayRain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayRain.json; sourceTree = "<group>"; };
+		B8C11D432C65284000C091C4 /* dayScatteredClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayScatteredClouds.json; sourceTree = "<group>"; };
+		B8C11D442C65284000C091C4 /* dayShowerRains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayShowerRains.json; sourceTree = "<group>"; };
+		B8C11D452C65284000C091C4 /* daySnow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = daySnow.json; sourceTree = "<group>"; };
+		B8C11D462C65284000C091C4 /* dayThunderstorm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayThunderstorm.json; sourceTree = "<group>"; };
+		B8C11D472C65284000C091C4 /* nightBrokenClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightBrokenClouds.json; sourceTree = "<group>"; };
+		B8C11D482C65284000C091C4 /* nightClearSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightClearSky.json; sourceTree = "<group>"; };
+		B8C11D492C65284000C091C4 /* nightFewClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightFewClouds.json; sourceTree = "<group>"; };
+		B8C11D4A2C65284000C091C4 /* nightMist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightMist.json; sourceTree = "<group>"; };
+		B8C11D4B2C65284000C091C4 /* nightRain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightRain.json; sourceTree = "<group>"; };
+		B8C11D4C2C65284000C091C4 /* nightScatteredClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightScatteredClouds.json; sourceTree = "<group>"; };
+		B8C11D4D2C65284000C091C4 /* nightShowerRains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightShowerRains.json; sourceTree = "<group>"; };
+		B8C11D4E2C65284000C091C4 /* nightSnow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightSnow.json; sourceTree = "<group>"; };
+		B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightThunderstorm.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +182,7 @@
 		B897F88F2C63F14700C80D88 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				B8C11D502C65284000C091C4 /* LottieAnimations */,
 				B8C11D072C64DA0600C091C4 /* Views */,
 				B8C11D082C64DA1000C091C4 /* ViewModels */,
 				B8C11D092C64DA3D00C091C4 /* Models */,
@@ -234,6 +271,31 @@
 				B8C11D392C651C2300C091C4 /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		B8C11D502C65284000C091C4 /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */,
+				B8C11D3F2C65284000C091C4 /* dayClearSky.json */,
+				B8C11D402C65284000C091C4 /* dayFewClouds.json */,
+				B8C11D412C65284000C091C4 /* dayMist.json */,
+				B8C11D422C65284000C091C4 /* dayRain.json */,
+				B8C11D432C65284000C091C4 /* dayScatteredClouds.json */,
+				B8C11D442C65284000C091C4 /* dayShowerRains.json */,
+				B8C11D452C65284000C091C4 /* daySnow.json */,
+				B8C11D462C65284000C091C4 /* dayThunderstorm.json */,
+				B8C11D472C65284000C091C4 /* nightBrokenClouds.json */,
+				B8C11D482C65284000C091C4 /* nightClearSky.json */,
+				B8C11D492C65284000C091C4 /* nightFewClouds.json */,
+				B8C11D4A2C65284000C091C4 /* nightMist.json */,
+				B8C11D4B2C65284000C091C4 /* nightRain.json */,
+				B8C11D4C2C65284000C091C4 /* nightScatteredClouds.json */,
+				B8C11D4D2C65284000C091C4 /* nightShowerRains.json */,
+				B8C11D4E2C65284000C091C4 /* nightSnow.json */,
+				B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */,
+			);
+			path = LottieAnimations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,8 +411,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C11D522C65284000C091C4 /* dayClearSky.json in Resources */,
+				B8C11D542C65284000C091C4 /* dayMist.json in Resources */,
+				B8C11D612C65284000C091C4 /* nightSnow.json in Resources */,
 				B897F8982C63F14900C80D88 /* Preview Assets.xcassets in Resources */,
+				B8C11D5F2C65284000C091C4 /* nightScatteredClouds.json in Resources */,
+				B8C11D5C2C65284000C091C4 /* nightFewClouds.json in Resources */,
+				B8C11D512C65284000C091C4 /* dayBrokenClouds.json in Resources */,
+				B8C11D592C65284000C091C4 /* dayThunderstorm.json in Resources */,
+				B8C11D552C65284000C091C4 /* dayRain.json in Resources */,
+				B8C11D582C65284000C091C4 /* daySnow.json in Resources */,
+				B8C11D5B2C65284000C091C4 /* nightClearSky.json in Resources */,
+				B8C11D602C65284000C091C4 /* nightShowerRains.json in Resources */,
+				B8C11D5A2C65284000C091C4 /* nightBrokenClouds.json in Resources */,
+				B8C11D5E2C65284000C091C4 /* nightRain.json in Resources */,
+				B8C11D532C65284000C091C4 /* dayFewClouds.json in Resources */,
+				B8C11D622C65284000C091C4 /* nightThunderstorm.json in Resources */,
+				B8C11D572C65284000C091C4 /* dayShowerRains.json in Resources */,
+				B8C11D562C65284000C091C4 /* dayScatteredClouds.json in Resources */,
 				B897F8952C63F14900C80D88 /* Assets.xcassets in Resources */,
+				B8C11D5D2C65284000C091C4 /* nightMist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,8 +17,8 @@ struct TodayWeatherView: View {
                 .bold()
             
             VStack(spacing: 20) {
-//                LottieView(name: cityViewModel.getLottieAnimationFor(icon: cityViewModel.weatherIcon))
-//                    .frame(width: 100, height: 100)
+                LottieView(name: cityViewModel.getLottieAnimationFor(icon: cityViewModel.weatherIcon))
+                    .frame(width: 100, height: 100)
                 VStack(alignment: .leading) {
                     Text("\(cityViewModel.temperature)℃")
                         .font(.system(size: 42))
