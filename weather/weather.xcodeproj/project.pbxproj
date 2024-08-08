@@ -188,8 +188,6 @@
 				B8C11D092C64DA3D00C091C4 /* Models */,
 				B897F8902C63F14700C80D88 /* weatherApp.swift */,
 				B8C11D352C651BFB00C091C4 /* Networking */,
-				B897F8C32C64025500C80D88 /* ForecastView.swift */,
-				B897F8C52C64026900C80D88 /* LoveCitiesView.swift */,
 				B897F8922C63F14700C80D88 /* ContentView.swift */,
 				B897F8942C63F14900C80D88 /* Assets.xcassets */,
 				B897F8962C63F14900C80D88 /* Preview Content */,
@@ -225,13 +223,9 @@
 		B8C11D072C64DA0600C091C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */,
-				B8C11D272C64F71400C091C4 /* HourlyWeatherView.swift */,
-				B8C11D292C64F92600C091C4 /* DailyWeatherView.swift */,
-				B8C11D0C2C64DDE700C091C4 /* CityView.swift */,
-				B8C11D102C64E03A00C091C4 /* TodayWeatherView.swift */,
-				B8C11D0E2C64DE1200C091C4 /* CityViewHeader.swift */,
-				B8C11D122C64E08E00C091C4 /* LottieView.swift */,
+				B8C11D652C653A6500C091C4 /* City */,
+				B8C11D642C653A4E00C091C4 /* Helpers */,
+				B8C11D632C653A3700C091C4 /* Forecast */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +290,36 @@
 				B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */,
 			);
 			path = LottieAnimations;
+			sourceTree = "<group>";
+		};
+		B8C11D632C653A3700C091C4 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				B897F8C32C64025500C80D88 /* ForecastView.swift */,
+				B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */,
+				B8C11D272C64F71400C091C4 /* HourlyWeatherView.swift */,
+				B8C11D292C64F92600C091C4 /* DailyWeatherView.swift */,
+				B8C11D0C2C64DDE700C091C4 /* CityView.swift */,
+				B8C11D102C64E03A00C091C4 /* TodayWeatherView.swift */,
+				B8C11D0E2C64DE1200C091C4 /* CityViewHeader.swift */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		B8C11D642C653A4E00C091C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B8C11D122C64E08E00C091C4 /* LottieView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B8C11D652C653A6500C091C4 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				B897F8C52C64026900C80D88 /* LoveCitiesView.swift */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

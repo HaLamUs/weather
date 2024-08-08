@@ -14,6 +14,7 @@ struct SearchView: View {
     var body: some View {
         HStack {
             TextField("", text: $searchTerm)
+                .accentColor(.yellow)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
             
