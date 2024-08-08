@@ -13,12 +13,13 @@ struct CityViewHeader: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10, content: {
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10) {
                 Text(city)
                     .font(.title)
                     .bold()
                 Text(date)
-            })//.foregroundColor(.white)
+            }
+            .foregroundColor(.white)
         }
     }
 }

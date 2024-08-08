@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ForecastView: View {
+    @ObservedObject var cityViewModel = CityViewModel()
+    
     var body: some View {
-        VStack(spacing: 0) {
-            SearchView()
-            ScrollView(showsIndicators: false) {
-                CityView()
-//                    .padding(.top, 10)
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                SearchView()
+                    .padding(.horizontal, 10)
+                ScrollView(showsIndicators: false) {
+                    CityView(cityViewModel: cityViewModel)
+                        .padding(.top, 10)
+                }
             }
+            .padding(.top, 45)
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        )
     }
 }
 
