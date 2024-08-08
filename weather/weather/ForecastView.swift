@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ForecastView: View {
     var body: some View {
-        Text("Hello, World! ForecastView")
+        VStack(spacing: 0) {
+            SearchView()
+            Text("Hello, World! ForecastView")
+        }
     }
 }
 
