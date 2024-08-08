@@ -24,7 +24,7 @@ struct SearchView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.blue)
                     
-                    Image(systemName: "location.fill")
+                    Image(systemName: "heart")
                 }
             }
             .frame(width: 50, height: 50)
@@ -37,8 +37,12 @@ struct SearchView: View {
                     .foregroundColor(.white)
                     .padding(.leading, 10)
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.blue.opacity(0.5))
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(LinearGradient(
+                        gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.blue]),
+                        startPoint: .top,
+                        endPoint: .bottom))
+                    .opacity(0.3)
             }
         )
     }

@@ -34,7 +34,7 @@ struct HourlyWeatherView: View {
         }
         .foregroundColor(.white)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 5)
+        .background(RoundedRectangle(cornerRadius: 20)
             .fill(
                 LinearGradient(
                     gradient: Gradient(colors: [Color(#colorLiteral(red: 0.6050806046, green: 0.8078469634, blue: 0.9820559621, alpha: 1)), Color(#colorLiteral(red: 0.4196078431, green: 0.5333333333, blue: 0.937254902, alpha: 1))]),
