@@ -11,7 +11,10 @@ struct ForecastView: View {
     var body: some View {
         VStack(spacing: 0) {
             SearchView()
-            Text("Hello, World! ForecastView")
+            ScrollView(showsIndicators: false) {
+                CityView()
+//                    .padding(.top, 10)
+            }
         }
     }
 }

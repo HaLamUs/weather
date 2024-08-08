@@ -17,6 +17,8 @@
 		B897F8C42C64025500C80D88 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B897F8C32C64025500C80D88 /* ForecastView.swift */; };
 		B897F8C62C64026900C80D88 /* LoveCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B897F8C52C64026900C80D88 /* LoveCitiesView.swift */; };
 		B8C11D0B2C64DA7D00C091C4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */; };
+		B8C11D0D2C64DDE700C091C4 /* CityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D0C2C64DDE700C091C4 /* CityView.swift */; };
+		B8C11D0F2C64DE1200C091C4 /* CityViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D0E2C64DE1200C091C4 /* CityViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B897F8C32C64025500C80D88 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		B897F8C52C64026900C80D88 /* LoveCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveCitiesView.swift; sourceTree = "<group>"; };
 		B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		B8C11D0C2C64DDE700C091C4 /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
+		B8C11D0E2C64DE1200C091C4 /* CityViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */,
+				B8C11D0C2C64DDE700C091C4 /* CityView.swift */,
+				B8C11D0E2C64DE1200C091C4 /* CityViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,9 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8C11D0B2C64DA7D00C091C4 /* SearchView.swift in Sources */,
+				B8C11D0D2C64DDE700C091C4 /* CityView.swift in Sources */,
 				B897F8C42C64025500C80D88 /* ForecastView.swift in Sources */,
 				B897F8932C63F14700C80D88 /* ContentView.swift in Sources */,
 				B897F8C62C64026900C80D88 /* LoveCitiesView.swift in Sources */,
+				B8C11D0F2C64DE1200C091C4 /* CityViewHeader.swift in Sources */,
 				B897F8912C63F14700C80D88 /* weatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
