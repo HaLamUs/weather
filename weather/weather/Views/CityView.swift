@@ -12,8 +12,14 @@ struct CityView: View {
     
     var body: some View {
         VStack {
-            CityViewHeader(city: "Sai Gon", date: "08/08/2024")
+            CityViewHeader(city: cityViewModel.city, date: cityViewModel.date)
+                .shadow(radius: 0)
             TodayWeatherView(cityViewModel: cityViewModel)
+                .padding()
+            HourlyWeatherView(cityViewModel: cityViewModel)
+                .padding(.horizontal)
+            DailyWeatherView(cityViewModel: cityViewModel)
+                .padding(.horizontal)
         }
     }
 }

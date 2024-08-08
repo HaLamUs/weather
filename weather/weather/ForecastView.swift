@@ -13,14 +13,13 @@ struct ForecastView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
-                SearchView()
+                SearchView(cityViewModel: cityViewModel)
                     .padding(.horizontal, 10)
                 ScrollView(showsIndicators: false) {
                     CityView(cityViewModel: cityViewModel)
                         .padding(.top, 10)
                 }
             }
-            .padding(.top, 45)
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)

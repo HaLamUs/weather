@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @ObservedObject var cityViewModel: CityViewModel
     @State private var searchTerm = "Ho chi minh"
     
     var body: some View {
@@ -17,6 +18,7 @@ struct SearchView: View {
                 .padding(.vertical, 5)
             
             Button {
+                cityViewModel.city = searchTerm
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -29,17 +31,19 @@ struct SearchView: View {
         }
         .foregroundColor(.white)
         .padding()
-        .background(ZStack(alignment: .leading) {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.white)
-                .padding(.leading, 10)
-            
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue.opacity(0.5))
-        })
+        .background(
+            ZStack(alignment: .leading) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.white)
+                    .padding(.leading, 10)
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.blue.opacity(0.5))
+            }
+        )
     }
 }
 
 #Preview {
-    SearchView()
+    SearchView(cityViewModel: CityViewModel())
 }
