@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct LoveCitiesView: View {
+    @ObservedObject var listViewModel = ListViewModel()
+    
     var body: some View {
-        Text("Hello, World! LoveCitiesView")
+//        Text("Hello, World! LoveCitiesView")
+        CityListView(listViewModel: listViewModel)
     }
 }
 
