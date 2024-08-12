@@ -12,7 +12,7 @@ struct CityView: View {
     
     var body: some View {
         VStack {
-            CityViewHeader(city: cityViewModel.city, date: cityViewModel.date)
+            CityViewHeader(cityViewModel: cityViewModel)
                 .shadow(radius: 0)
             TodayWeatherView(cityViewModel: cityViewModel)
                 .padding()
