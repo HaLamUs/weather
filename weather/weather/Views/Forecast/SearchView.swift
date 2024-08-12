@@ -15,36 +15,27 @@ struct SearchView: View {
         HStack {
             TextField("", text: $searchTerm)
                 .accentColor(.yellow)
-                .padding(.horizontal, 20)
                 .padding(.vertical, 5)
-            
-            Button {
-                cityViewModel.city = searchTerm
-            } label: {
-                ZStack {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.white)
+                .frame(width: 50, height: 50)
+                .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.blue)
-                    
-                    Image(systemName: "heart")
+                )
+                .onTapGesture {
+                    cityViewModel.city = searchTerm
                 }
-            }
-            .frame(width: 50, height: 50)
         }
         .foregroundColor(.white)
         .padding()
         .background(
-            ZStack(alignment: .leading) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.white)
-                    .padding(.leading, 10)
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(
-                        gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.blue]),
-                        startPoint: .top,
-                        endPoint: .bottom))
-                    .opacity(0.3)
-            }
+            RoundedRectangle(cornerRadius: 20)
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.blue]),
+                    startPoint: .top,
+                    endPoint: .bottom))
+                .opacity(0.3)
         )
     }
 }
