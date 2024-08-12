@@ -15,6 +15,6 @@ struct FetchWeatherUseCaseImpl: FetchWeatherUseCase {
     }
 
     func execute(for city: String) async throws -> WeatherResponse {
-        return try await repository.fetchWeather(for: city)
+        try await repository.fetchWeather(for: city)
     }
 }
