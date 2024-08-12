@@ -8,7 +8,13 @@
 import Foundation
 import CoreLocation
 
-final class CityViewModel: ObservableObject {
+/*
+    call api - repo api
+    save data - repo database
+    use case - business logic
+ */
+
+final class CityViewModel2: ObservableObject {
     @Published var weather = WeatherResponse.empty()
     @Published var city: String = "Ho chi minh" {
         didSet {
