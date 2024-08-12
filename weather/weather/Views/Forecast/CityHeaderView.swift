@@ -1,5 +1,5 @@
 //
-//  CityViewHeader.swift
+//  CityHeaderView.swift
 //  weather
 //
 //  Created by lamha on 08/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CityViewHeader: View {
+struct CityHeaderView: View {
     @ObservedObject var cityViewModel: CityViewModel
     
     var body: some View {
@@ -30,5 +30,5 @@ struct CityViewHeader: View {
 }
 
 #Preview {
-    CityViewHeader(cityViewModel: Composer.createCityViewModel())
+    CityHeaderView(cityViewModel: Composer.createCityViewModel())
 }
