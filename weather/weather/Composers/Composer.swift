@@ -10,7 +10,12 @@ import Foundation
 enum Composer {
     static func createCityViewModel() -> CityViewModel {
         let repository = WeatherRepositoryImpl()
-        let useCase = FetchWeatherUseCaseImpl(repository: repository)
-        return CityViewModel(fetchWeatherUseCase: useCase)
+        let fetchWeatherUseCase = FetchWeatherUseCaseImpl(repository: repository)
+        let dateFormattingUseCase = DateFormattingUseCaseImpl()
+        let weatherDataUseCase = WeatherDataUseCaseImpl()
+        return CityViewModel(fetchWeatherUseCase: fetchWeatherUseCase,
+                             dateFormattingUseCase: dateFormattingUseCase,
+                             weatherDataUseCase: weatherDataUseCase)
     }
 }
+

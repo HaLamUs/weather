@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DateFormattingUseCaseImpl: DateFormattingUseCase {
+final class DateFormattingUseCaseImpl: DateFormattingUseCase {
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
