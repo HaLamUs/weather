@@ -8,12 +8,6 @@
 import Foundation
 import RealmSwift
 
-import RealmSwift
-
-class LovedCity: Object {
-    
-}
-
 struct RealmDatabaseManager: DatabaseManager {
     typealias Entity = Object
     private static let schemaVersion: UInt64 = 1
