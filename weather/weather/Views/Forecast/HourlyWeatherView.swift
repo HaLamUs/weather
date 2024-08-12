@@ -46,5 +46,5 @@ struct HourlyWeatherView: View {
 }
 
 #Preview {
-    HourlyWeatherView(cityViewModel: CityViewModel())
+    HourlyWeatherView(cityViewModel: Composer.createCityViewModel())
 }

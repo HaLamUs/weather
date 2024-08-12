@@ -25,5 +25,5 @@ struct CityView: View {
 }
 
 #Preview {
-    CityView(cityViewModel: CityViewModel())
+    CityView(cityViewModel: Composer.createCityViewModel())
 }

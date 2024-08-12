@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ForecastView: View {
-    @ObservedObject var cityViewModel = CityViewModel()
+//    @ObservedObject var cityViewModel = CityViewModel()
+    @ObservedObject var cityViewModel = Composer.createCityViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {

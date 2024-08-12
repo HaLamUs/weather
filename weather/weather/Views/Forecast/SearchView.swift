@@ -50,5 +50,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView(cityViewModel: CityViewModel())
+    SearchView(cityViewModel: Composer.createCityViewModel())
 }
