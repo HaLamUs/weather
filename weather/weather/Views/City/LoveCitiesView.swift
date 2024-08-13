@@ -10,10 +10,12 @@ import SwiftUI
 struct LoveCitiesView: View {
     @Binding var tabSelection: Int
     @ObservedObject var listViewModel = ListViewModel()
+    @ObservedObject var cityViewModel = Composer.createCityViewModel()
     
     var body: some View {
         CityListView(
-            listViewModel: listViewModel,
+            listViewModel: listViewModel, 
+            cityViewModel: cityViewModel,
             tabSelection: $tabSelection
         )
     }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 final class ForcastViewModel: ObservableObject {
     @Published var weather = WeatherResponse.empty()
@@ -22,8 +21,6 @@ final class ForcastViewModel: ObservableObject {
     private let updateCityUseCase: UpdateCityUseCase
     private let dateFormattingUseCase: DateFormattingUseCase
     private let weatherDataUseCase: WeatherDataUseCase
-    
-    private var cancellables: Set<AnyCancellable> = .init()
     
     init(fetchWeatherUseCase: FetchWeatherUseCase,
          dateFormattingUseCase: DateFormattingUseCase,
@@ -109,28 +106,6 @@ extension ForcastViewModel {
             print(error)
         }
     }
-    
-    // TODO: handle error case
-    func getAllCities() {
-        updateCityUseCase.fetchAllLovedCities()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                if case let .failure(error) = completion {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }, receiveValue: { info in
-                print("Received cities: \(info)")
-            })
-            .store(in: &cancellables)
-    }
-    
-    // TODO: handle error case
-    func removeFavCity() {
-        do {
-            try updateCityUseCase.remove(city: city)
-        } catch {
-            print(error)
-        }
-    }
+
 }
 

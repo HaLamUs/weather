@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B845B2A62C6B888F00BDC4D1 /* LovedCityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */; };
+		B845B2A82C6BC1A900BDC4D1 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845B2A72C6BC1A900BDC4D1 /* CityViewModel.swift */; };
 		B88EC75E2C6A2F1200E7340E /* DatabaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */; };
 		B88EC7652C6A305600E7340E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88EC7642C6A305600E7340E /* RealmSwift */; };
 		B88EC7662C6A305600E7340E /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B88EC7642C6A305600E7340E /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -109,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedCityDTO.swift; sourceTree = "<group>"; };
+		B845B2A72C6BC1A900BDC4D1 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
 		B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInterface.swift; sourceTree = "<group>"; };
 		B88EC7672C6A392F00E7340E /* LovedCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedCity.swift; sourceTree = "<group>"; };
 		B88EC76C2C6A440400E7340E /* Composer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C11D232C64F32700C091C4 /* ForcastViewModel.swift */,
+				B845B2A72C6BC1A900BDC4D1 /* CityViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				B8C11D0D2C64DDE700C091C4 /* CityView.swift in Sources */,
 				B88EC7682C6A392F00E7340E /* LovedCity.swift in Sources */,
 				B88EC76F2C6A44D100E7340E /* WeatherRepository.swift in Sources */,
+				B845B2A82C6BC1A900BDC4D1 /* CityViewModel.swift in Sources */,
 				B88EC7782C6A45D600E7340E /* FetchWeatherUseCaseImpl.swift in Sources */,
 				B8C11D692C653AAA00C091C4 /* CityRowView.swift in Sources */,
 				B8C11D132C64E08E00C091C4 /* LottieView.swift in Sources */,
