@@ -12,6 +12,12 @@ struct RealmClient {
     private static let schemaVersion: UInt64 = 1
     private var _realm: Realm
     
+    enum DatabaseError: Error {
+        case realmClientUnavailable
+        case createFailed
+        case deleteFailed
+    }
+    
     init() throws {
         let config = Realm.Configuration(
             fileURL: Realm.Configuration().fileURL?.deletingLastPathComponent()

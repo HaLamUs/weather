@@ -9,13 +9,9 @@ import Foundation
 import RealmSwift
 import Combine
 
-enum CityDatabaseError: Error {
-    case realmClientUnavailable
-    case writeFailed
-}
-
 protocol CityDatabaseManagerInterface: DatabaseManager {
     func saveCity(_ name: String) throws
+    func removeCity(_ name: String) throws
 }
 
 // TODO: Make accessing thread safer
@@ -25,10 +21,7 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
     static let realmClient = try? RealmClient().realm
     
     func saveCity(_ name: String) throws {
-        let city = LovedCity()
-        city.name = name
-        city.id = incrementID()
-        try create(city)
+        try create(initLovedCityModel(name: name))
     }
     
     // TODO: handle result return
@@ -36,14 +29,14 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
         let city = search(city: object.name)
         if city == nil {
             guard let realm = CityDatabaseManager.realmClient else {
-                throw CityDatabaseError.realmClientUnavailable
+                throw RealmClient.DatabaseError.realmClientUnavailable
             }
             do {
                 try realm.write {
                     realm.add(object)
                 }
             } catch {
-                throw CityDatabaseError.writeFailed
+                throw RealmClient.DatabaseError.createFailed
             }
         }
     }
@@ -51,7 +44,7 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
     func fetchAll() -> AnyPublisher<[LovedCity], Error> {
         Future { promise in
             guard let realm = CityDatabaseManager.realmClient else {
-                return promise(.failure(CityDatabaseError.realmClientUnavailable))
+                return promise(.failure(RealmClient.DatabaseError.realmClientUnavailable))
             }
             let results = realm.objects(LovedCity.self)
             let lovedCities = Array(results)
@@ -64,8 +57,23 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
         
     }
     
-    func delete(_ object: LovedCity) {
-        
+    func removeCity(_ name: String) throws {
+        try delete(initLovedCityModel(name: name))
+    }
+
+    func delete(_ object: LovedCity) throws {
+        if let city = search(city: object.name) {
+            guard let realm = CityDatabaseManager.realmClient else {
+                throw RealmClient.DatabaseError.realmClientUnavailable
+            }
+            do {
+                try realm.write {
+                    realm.delete(realm.objects(LovedCity.self).filter("id == %@", city.id))
+                }
+            } catch {
+                throw RealmClient.DatabaseError.deleteFailed
+            }
+        }
     }
 }
 
@@ -81,5 +89,12 @@ extension CityDatabaseManager {
         (CityDatabaseManager.realmClient?
             .objects(LovedCity.self)
             .max(ofProperty: "id") as Int? ?? 0) + 1
+    }
+    
+    private func initLovedCityModel(name: String) -> LovedCity {
+        let city = LovedCity()
+        city.name = name
+        city.id = incrementID()
+        return city
     }
 }

@@ -15,8 +15,11 @@ struct CityRepositoryImpl: CityRepository {
         try cityDataManager.saveCity(city)
     }
     
+    func removeFavCity(_ city: String) throws {
+        try cityDataManager.removeCity(city)
+    }
+    
     func fetchAll() -> AnyPublisher<[LovedCity], any Error> {
         cityDataManager.fetchAll()
     }
-    
 }

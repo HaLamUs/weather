@@ -20,6 +20,10 @@ struct UpdateCityUseCaseImpl: UpdateCityUseCase {
         try repository.saveFavCity(city)
     }
     
+    func remove(city: String) throws {
+        try repository.removeFavCity(city)
+    }
+    
     func fetchAllLovedCities() -> AnyPublisher<[LovedCityDTO], Error> {
         return repository.fetchAll()
             .map { lovedCities in

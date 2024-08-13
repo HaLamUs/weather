@@ -14,5 +14,5 @@ protocol DatabaseManager {
     func create(_ object: Entity) throws
     func fetchAll() -> AnyPublisher<[Entity], Error>
     func update(_ object: Entity, with dictionary: [String: Any])
-    func delete(_ object: Entity)
+    func delete(_ object: Entity) throws
 }
