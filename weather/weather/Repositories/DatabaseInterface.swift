@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Combine
 
 protocol DatabaseManager {
     associatedtype Entity
 
     func create(_ object: Entity) throws
-    func read(with primaryKey: Any) -> Entity?
+    func fetchAll() -> AnyPublisher<[Entity], Error>
     func update(_ object: Entity, with dictionary: [String: Any])
     func delete(_ object: Entity)
 }

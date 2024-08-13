@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import Combine
 
 enum CityDatabaseError: Error {
     case realmClientUnavailable
@@ -17,6 +18,7 @@ protocol CityDatabaseManagerInterface: DatabaseManager {
     func saveCity(_ name: String) throws
 }
 
+// TODO: Make accessing thread safer
 struct CityDatabaseManager: CityDatabaseManagerInterface {
     typealias Entity = LovedCity
    
@@ -29,7 +31,7 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
         try create(city)
     }
     
-    //TODO: handle result return
+    // TODO: handle result return
     func create(_ object: LovedCity) throws {
         let city = search(city: object.name)
         if city == nil {
@@ -46,8 +48,16 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
         }
     }
     
-    func read(with primaryKey: Any) -> LovedCity? {
-        nil
+    func fetchAll() -> AnyPublisher<[LovedCity], Error> {
+        Future { promise in
+            guard let realm = CityDatabaseManager.realmClient else {
+                return promise(.failure(CityDatabaseError.realmClientUnavailable))
+            }
+            let results = realm.objects(LovedCity.self)
+            let lovedCities = Array(results)
+            promise(.success(lovedCities))
+            
+        }.eraseToAnyPublisher()
     }
     
     func update(_ object: LovedCity, with dictionary: [String : Any]) {
