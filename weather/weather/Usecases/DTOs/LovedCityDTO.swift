@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct LovedCityDTO {
+struct LovedCityDTO: Identifiable {
+    var id: String {
+        "\(UUID())"
+    }
+    
     let name: String
 }
 

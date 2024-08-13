@@ -25,5 +25,12 @@ enum Composer {
             updateCityUseCase: updateCityUseCase
         )
     }
+    
+    static func createCityViewModel() -> CityViewModel {
+        let cityRepository = CityRepositoryImpl()
+        let updateCityUseCase = UpdateCityUseCaseImpl(repository: cityRepository)
+        
+        return CityViewModel(updateCityUseCase: updateCityUseCase)
+    }
 }
 
