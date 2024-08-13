@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TodayWeatherView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    @ObservedObject var forcastViewModel: ForcastViewModel
     
     var body: some View {
         VStack(spacing: 10) {
@@ -17,22 +17,22 @@ struct TodayWeatherView: View {
                 .bold()
             
             HStack(spacing: 20) {
-                LottieView(name: cityViewModel.weatherAnimation)
+                LottieView(name: forcastViewModel.weatherAnimation)
                     .frame(width: 100, height: 100)
                 VStack(alignment: .leading) {
-                    Text("\(cityViewModel.temperature)℃")
+                    Text("\(forcastViewModel.temperature)℃")
                         .font(.system(size: 42))
-                    Text(cityViewModel.conditions)
+                    Text(forcastViewModel.conditions)
                 }
             }
             
             HStack {
                 Spacer()
-                widgetView(image: "wind", color: .green, title: "\(cityViewModel.windSpeed) km/hr")
+                widgetView(image: "wind", color: .green, title: "\(forcastViewModel.windSpeed) km/hr")
                 Spacer()
-                widgetView(image: "drop.fill", color: .blue, title: "\(cityViewModel.humidity)")
+                widgetView(image: "drop.fill", color: .blue, title: "\(forcastViewModel.humidity)")
                 Spacer()
-                widgetView(image: "umbrella.fill", color: .red, title: "\(cityViewModel.rainChances)")
+                widgetView(image: "umbrella.fill", color: .red, title: "\(forcastViewModel.rainChances)")
                 Spacer()
             }
         }
@@ -64,5 +64,5 @@ struct TodayWeatherView: View {
 }
 
 #Preview {
-    TodayWeatherView(cityViewModel: Composer.createCityViewModel())
+    TodayWeatherView(forcastViewModel: Composer.createForcastViewModel())
 }

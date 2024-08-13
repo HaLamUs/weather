@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DailyWeatherView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    @ObservedObject var forcastViewModel: ForcastViewModel
     
     var body: some View {
-        ForEach(cityViewModel.weather.daily) { weather in
+        ForEach(forcastViewModel.weather.daily) { weather in
             LazyVStack {
                 dailyCell(weather: weather)
             }
@@ -20,15 +20,15 @@ struct DailyWeatherView: View {
     
     private func dailyCell(weather: WeatherDaily) -> some View {
         HStack {
-            Text(cityViewModel.getDayFor(timestamp: weather.dt).uppercased())
+            Text(forcastViewModel.getDayFor(timestamp: weather.dt).uppercased())
                 .frame(width: 50)
             
             Spacer()
             
-            Text("\(cityViewModel.getTempFor(temp: weather.temp.max)) | \(cityViewModel.getTempFor(temp: weather.temp.min)) ℃")
+            Text("\(forcastViewModel.getTempFor(temp: weather.temp.max)) | \(forcastViewModel.getTempFor(temp: weather.temp.min)) ℃")
                 .frame(width: 150)
             Spacer()
-            Image(systemName: cityViewModel.getWeatherIconFor(icon: weather.weather[0].icon))
+            Image(systemName: forcastViewModel.getWeatherIconFor(icon: weather.weather[0].icon))
         }
         .foregroundColor(.white)
         .padding(.horizontal, 40)
@@ -45,5 +45,5 @@ struct DailyWeatherView: View {
 }
 
 #Preview {
-    DailyWeatherView(cityViewModel: Composer.createCityViewModel())
+    DailyWeatherView(forcastViewModel: Composer.createForcastViewModel())
 }

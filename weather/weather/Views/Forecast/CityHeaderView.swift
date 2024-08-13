@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct CityHeaderView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    @ObservedObject var forcastViewModel: ForcastViewModel
     
     var body: some View {
         HStack {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10) {
                 HStack() {
-                    Text(cityViewModel.city)
+                    Text(forcastViewModel.city)
                         .font(.title)
                         .bold()
-                    Image(systemName: cityViewModel.favCityIcon)
+                    Image(systemName: forcastViewModel.favCityIcon)
                         .onTapGesture {
-                            cityViewModel.saveFavCity()
+                            forcastViewModel.saveFavCity()
+//                            cityViewModel.getAllCities()
+//                            cityViewModel.removeFavCity()
                         }
                 }
-                Text(cityViewModel.date)
+                Text(forcastViewModel.date)
             }
             .foregroundColor(.white)
         }
@@ -30,5 +32,5 @@ struct CityHeaderView: View {
 }
 
 #Preview {
-    CityHeaderView(cityViewModel: Composer.createCityViewModel())
+    CityHeaderView(forcastViewModel: Composer.createForcastViewModel())
 }

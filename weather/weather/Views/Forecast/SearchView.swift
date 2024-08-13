@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    @ObservedObject var forcastViewModel: ForcastViewModel
     @State private var searchTerm = "Ho chi minh"
     
     var body: some View {
@@ -24,7 +24,7 @@ struct SearchView: View {
                         .fill(Color.blue)
                 )
                 .onTapGesture {
-                    cityViewModel.city = searchTerm
+                    forcastViewModel.city = searchTerm
                 }
         }
         .foregroundColor(.white)
@@ -41,5 +41,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView(cityViewModel: Composer.createCityViewModel())
+    SearchView(forcastViewModel: Composer.createForcastViewModel())
 }

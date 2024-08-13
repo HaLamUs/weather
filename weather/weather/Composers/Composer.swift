@@ -8,7 +8,7 @@
 import Foundation
 
 enum Composer {
-    static func createCityViewModel() -> CityViewModel {
+    static func createForcastViewModel() -> ForcastViewModel {
         let repository = WeatherRepositoryImpl()
         let fetchWeatherUseCase = FetchWeatherUseCaseImpl(repository: repository)
         
@@ -18,7 +18,7 @@ enum Composer {
         let dateFormattingUseCase = DateFormattingUseCaseImpl()
         let weatherDataUseCase = WeatherDataUseCaseImpl()
         
-        return CityViewModel(
+        return ForcastViewModel(
             fetchWeatherUseCase: fetchWeatherUseCase,
             dateFormattingUseCase: dateFormattingUseCase,
             weatherDataUseCase: weatherDataUseCase,

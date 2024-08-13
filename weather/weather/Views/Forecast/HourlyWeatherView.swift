@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct HourlyWeatherView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    @ObservedObject var forcastViewModel: ForcastViewModel
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
-                ForEach(cityViewModel.weather.hourly) { weather in
-                    let icon = cityViewModel.getWeatherIconFor(
+                ForEach(forcastViewModel.weather.hourly) { weather in
+                    let icon = forcastViewModel.getWeatherIconFor(
                         icon: weather.weather.count > 0 ? weather.weather[0].icon : "sun.max.fill"
                     )
-                    let hour = cityViewModel.getTimeFor(timestamp: weather.dt)
-                    let temp = cityViewModel.getTempFor(temp: weather.temp)
+                    let hour = forcastViewModel.getTimeFor(timestamp: weather.dt)
+                    let temp = forcastViewModel.getTempFor(temp: weather.temp)
                     
                     getHourlyView(hour: hour, image: Image(systemName:icon), temp: temp)
                 }
@@ -46,5 +46,5 @@ struct HourlyWeatherView: View {
 }
 
 #Preview {
-    HourlyWeatherView(cityViewModel: Composer.createCityViewModel())
+    HourlyWeatherView(forcastViewModel: Composer.createForcastViewModel())
 }

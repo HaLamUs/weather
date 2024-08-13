@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct ForecastView: View {
-//    @ObservedObject var cityViewModel = CityViewModel()
-    @ObservedObject var cityViewModel = Composer.createCityViewModel()
+    @ObservedObject var forcastViewModel = Composer.createForcastViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
-                SearchView(cityViewModel: cityViewModel)
+                SearchView(forcastViewModel: forcastViewModel)
                     .padding(.horizontal, 10)
                 ScrollView(showsIndicators: false) {
-                    CityView(cityViewModel: cityViewModel)
+                    CityView(forcastViewModel: forcastViewModel)
                         .padding(.top, 10)
                 }
             }
