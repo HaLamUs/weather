@@ -6,10 +6,6 @@
 //
 
 import SwiftUI
-//
-//struct CityListView2: View {
-//    Text("Hello, World! LoveCitiesView")
-//}
 
 final class ListViewModel: ObservableObject {
     
@@ -35,7 +31,7 @@ final class ListViewModel: ObservableObject {
     }
     
     func deleteItem(index: IndexSet) {
-        items.remove(atOffsets: index) // Perform item deletion at the specified index.
+        items.remove(atOffsets: index)
     }
     
     func moveItem(from: IndexSet, to: Int) {
@@ -62,16 +58,15 @@ final class ListViewModel: ObservableObject {
 
 struct CityListView: View {
     @ObservedObject var listViewModel: ListViewModel
-//    @ObservedObject var cityViewModel: CityViewModel
+    @Binding var tabSelection: Int
     
     var body: some View {
         ZStack {
             if listViewModel.items.isEmpty {
-                NoCityView()
+                NoCityView(tabSelection: $tabSelection)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             } else {
                 List {
-                    // Iterate through the items in the listViewModel and display each item using ListRowView.
                     ForEach(listViewModel.items) { item in
                         CityRowView(item: item)
                             .onTapGesture {
@@ -80,18 +75,19 @@ struct CityListView: View {
                                 }
                             }
                     }
-                    // Enable item deletion by swiping and performing the deleteItem function from listViewModel.
                     .onDelete(perform: listViewModel.deleteItem)
-                    // Enable item reordering by long-pressing and moving the item with the moveItem function from listViewModel.
                     .onMove(perform: listViewModel.moveItem)
                 }
                 .listStyle(.plain)
             }
         }
-//        .navigationTitle("ToDo List 📝")
     }
 }
 
-#Preview {
-    CityListView(listViewModel: ListViewModel())
-}
+//#Preview {
+//    @State var tabSelection = 1
+//    CityListView(
+//        listViewModel: ListViewModel(),
+//        tabSelection: $tabSelection
+//    )
+//}

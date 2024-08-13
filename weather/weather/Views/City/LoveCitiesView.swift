@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct LoveCitiesView: View {
+    @Binding var tabSelection: Int
     @ObservedObject var listViewModel = ListViewModel()
     
     var body: some View {
-//        Text("Hello, World! LoveCitiesView")
-        CityListView(listViewModel: listViewModel)
+        CityListView(
+            listViewModel: listViewModel,
+            tabSelection: $tabSelection
+        )
     }
 }
 
-#Preview {
-    LoveCitiesView()
-}
+//#Preview {
+//    @State var tabSelection = 1
+//    LoveCitiesView(tabSelection: tabSelection)
+//}

@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabSelection = 1
+    
     var body: some View {
-        TabView {
+        TabView(selection: $tabSelection) {
             ForecastView()
                 .tabItem {
                     Label("Forecast", systemImage: "cloud.sun.fill")
                 }
-            LoveCitiesView()
+                .tag(1)
+            LoveCitiesView(tabSelection: $tabSelection)
                 .tabItem {
                     Label("Love cities", systemImage: "heart")
                 }
-            
+                .tag(2)
         }
     }
 }
