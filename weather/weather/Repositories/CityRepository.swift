@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol CityRepository {
     func saveFavCity(_ city: String) throws
+    func fetchAll() -> AnyPublisher<[LovedCity], Error>
 }

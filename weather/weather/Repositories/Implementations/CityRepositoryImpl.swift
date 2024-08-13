@@ -6,14 +6,17 @@
 //
 
 import Foundation
+import Combine
 
 struct CityRepositoryImpl: CityRepository {
-    
     private let cityDataManager = CityDatabaseManager()
     
     func saveFavCity(_ city: String) throws {
         try cityDataManager.saveCity(city)
     }
     
+    func fetchAll() -> AnyPublisher<[LovedCity], any Error> {
+        cityDataManager.fetchAll()
+    }
     
 }

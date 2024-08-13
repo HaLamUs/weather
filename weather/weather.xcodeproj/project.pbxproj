@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B845B2A62C6B888F00BDC4D1 /* LovedCityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */; };
 		B88EC75E2C6A2F1200E7340E /* DatabaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */; };
 		B88EC7652C6A305600E7340E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88EC7642C6A305600E7340E /* RealmSwift */; };
 		B88EC7662C6A305600E7340E /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B88EC7642C6A305600E7340E /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -107,6 +108,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedCityDTO.swift; sourceTree = "<group>"; };
 		B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInterface.swift; sourceTree = "<group>"; };
 		B88EC7672C6A392F00E7340E /* LovedCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedCity.swift; sourceTree = "<group>"; };
 		B88EC76C2C6A440400E7340E /* Composer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B845B2A42C6B887B00BDC4D1 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
 		B88EC75C2C6A2ED100E7340E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +245,7 @@
 		B88EC7732C6A45A500E7340E /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
+				B845B2A42C6B887B00BDC4D1 /* DTOs */,
 				B88EC7762C6A45C300E7340E /* Implementations */,
 				B88EC7742C6A45B600E7340E /* FetchWeatherUseCase.swift */,
 				B88EC78B2C6A832800E7340E /* UpdateCityUseCase.swift */,
@@ -599,6 +610,7 @@
 				B88EC7752C6A45B600E7340E /* FetchWeatherUseCase.swift in Sources */,
 				B8C11D242C64F32700C091C4 /* CityViewModel.swift in Sources */,
 				B88EC7722C6A457A00E7340E /* WeatherRepositoryImpl.swift in Sources */,
+				B845B2A62C6B888F00BDC4D1 /* LovedCityDTO.swift in Sources */,
 				B8C11D0D2C64DDE700C091C4 /* CityView.swift in Sources */,
 				B88EC7682C6A392F00E7340E /* LovedCity.swift in Sources */,
 				B88EC76F2C6A44D100E7340E /* WeatherRepository.swift in Sources */,
