@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol UpdateCityUseCase {
     func save(city: String) throws
+    func fetchAllLovedCities() -> AnyPublisher<[LovedCityDTO], Error>
 }

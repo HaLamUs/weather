@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct UpdateCityUseCaseImpl: UpdateCityUseCase {
     
@@ -19,5 +20,12 @@ struct UpdateCityUseCaseImpl: UpdateCityUseCase {
         try repository.saveFavCity(city)
     }
     
+    func fetchAllLovedCities() -> AnyPublisher<[LovedCityDTO], Error> {
+        return repository.fetchAll()
+            .map { lovedCities in
+                lovedCities.map { LovedCityDTO(name: $0.name) }
+            }
+            .eraseToAnyPublisher()
+    }
     
 }
