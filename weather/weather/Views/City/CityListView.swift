@@ -10,6 +10,7 @@ import SwiftUI
 struct CityListView: View {
     @ObservedObject var cityViewModel: CityViewModel
     @Binding var tabSelection: Int
+    @Binding var searchCityText: String
     
     var body: some View {
         VStack() {
@@ -23,7 +24,11 @@ struct CityListView: View {
                     .bold()
                 ForEach(cityViewModel.cities) { city in
                     LazyVStack {
-                        CityRowView(cityViewModel: cityViewModel, city: city)
+                        CityRowView(
+                            cityViewModel: cityViewModel,
+                            tabSelection: $tabSelection, 
+                            searchCityText: $searchCityText,
+                            city: city)
                     }
                 }
             }

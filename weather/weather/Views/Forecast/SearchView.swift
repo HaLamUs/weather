@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var forcastViewModel: ForcastViewModel
-    @State private var searchTerm = "Ho chi minh"
+    @State private var searchTerm = ""
     
     var body: some View {
         HStack {
@@ -37,6 +37,9 @@ struct SearchView: View {
                     endPoint: .bottom))
                 .opacity(0.3)
         )
+        .onAppear{
+            searchTerm = forcastViewModel.city
+        }
     }
 }
 

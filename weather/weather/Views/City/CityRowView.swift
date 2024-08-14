@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CityRowView: View {
     @ObservedObject var cityViewModel: CityViewModel
+    @Binding var tabSelection: Int
+    @Binding var searchCityText: String
+    
     let city: LovedCityDTO
     
     var body: some View {
@@ -38,12 +41,10 @@ struct CityRowView: View {
                 )))
         .shadow(color: Color.white.opacity(0.1), radius: 2, x: -2, y: -2)
         .shadow(color: Color.black.opacity(0.2), radius: 2, x: 2, y: 2)
+        .onTapGesture {
+            searchCityText = city.name
+            tabSelection = 1
+            print("city \(city.name)")
+        }
     }
-}
-
-#Preview {
-    CityRowView(
-        cityViewModel: Composer.createCityViewModel(),
-        city: LovedCityDTO(name: "Ho Chi Minh")
-    )
 }

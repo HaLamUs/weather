@@ -9,23 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var tabSelection = 1
+    @ObservedObject var forcastViewModel = Composer.createForcastViewModel()
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            ForecastView()
+            ForecastView(forcastViewModel: forcastViewModel)
                 .tabItem {
                     Label("Forecast", systemImage: "cloud.sun.fill")
                 }
                 .tag(1)
-            LoveCitiesView(tabSelection: $tabSelection)
+            LoveCitiesView(
+                tabSelection: $tabSelection,
+                searchCityText: $forcastViewModel.city)
                 .tabItem {
                     Label("Love cities", systemImage: "heart")
                 }
                 .tag(2)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
