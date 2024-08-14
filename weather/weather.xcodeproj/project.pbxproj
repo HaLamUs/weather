@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8061A502C6CCAF1003E8A91 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8061A4F2C6CCAF1003E8A91 /* Launch Screen.storyboard */; };
 		B845B2A62C6B888F00BDC4D1 /* LovedCityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */; };
 		B845B2A82C6BC1A900BDC4D1 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845B2A72C6BC1A900BDC4D1 /* CityViewModel.swift */; };
 		B88EC75E2C6A2F1200E7340E /* DatabaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */; };
@@ -109,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B8061A4F2C6CCAF1003E8A91 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B845B2A52C6B888F00BDC4D1 /* LovedCityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedCityDTO.swift; sourceTree = "<group>"; };
 		B845B2A72C6BC1A900BDC4D1 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
 		B88EC75D2C6A2F1200E7340E /* DatabaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInterface.swift; sourceTree = "<group>"; };
@@ -299,11 +301,12 @@
 				B8C11D072C64DA0600C091C4 /* Views */,
 				B8C11D082C64DA1000C091C4 /* ViewModels */,
 				B8C11D092C64DA3D00C091C4 /* Models */,
-				B897F8902C63F14700C80D88 /* weatherApp.swift */,
 				B8C11D352C651BFB00C091C4 /* Networking */,
 				B897F8922C63F14700C80D88 /* ContentView.swift */,
+				B897F8902C63F14700C80D88 /* weatherApp.swift */,
 				B897F8942C63F14900C80D88 /* Assets.xcassets */,
 				B897F8962C63F14900C80D88 /* Preview Content */,
+				B8061A4F2C6CCAF1003E8A91 /* Launch Screen.storyboard */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				B897F8982C63F14900C80D88 /* Preview Assets.xcassets in Resources */,
 				B8C11D5F2C65284000C091C4 /* nightScatteredClouds.json in Resources */,
 				B8C11D5C2C65284000C091C4 /* nightFewClouds.json in Resources */,
+				B8061A502C6CCAF1003E8A91 /* Launch Screen.storyboard in Resources */,
 				B8C11D512C65284000C091C4 /* dayBrokenClouds.json in Resources */,
 				B8C11D592C65284000C091C4 /* dayThunderstorm.json in Resources */,
 				B8C11D552C65284000C091C4 /* dayRain.json in Resources */,
@@ -808,6 +812,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -836,6 +841,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
