@@ -37,8 +37,9 @@ struct SearchView: View {
                     endPoint: .bottom))
                 .opacity(0.3)
         )
-        .onAppear{
+        .onAppear {
             searchTerm = forcastViewModel.city
+            forcastViewModel.city = searchTerm // trigger update
         }
     }
 }

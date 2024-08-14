@@ -27,6 +27,7 @@ struct CityRowView: View {
                         .fill(Color.blue)
                 )
                 .onTapGesture {
+//                    searchCityText = city.name
                     cityViewModel.deleteCity(city.name)
                 }
         }
@@ -44,7 +45,6 @@ struct CityRowView: View {
         .onTapGesture {
             searchCityText = city.name
             tabSelection = 1
-            print("city \(city.name)")
         }
     }
 }
