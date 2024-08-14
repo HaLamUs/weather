@@ -14,6 +14,7 @@ struct CityRowView: View {
     var body: some View {
         HStack {
             Text(city.name)
+                .font(.title2)
             Spacer()
             Image(systemName: "delete.backward.fill")
                 .foregroundColor(.white)

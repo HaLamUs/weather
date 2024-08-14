@@ -17,6 +17,10 @@ struct CityListView: View {
                 NoCitiesView(tabSelection: $tabSelection)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             } else {
+                Text("My favourite list")
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .bold()
                 ForEach(cityViewModel.cities) { city in
                     LazyVStack {
                         CityRowView(cityViewModel: cityViewModel, city: city)
