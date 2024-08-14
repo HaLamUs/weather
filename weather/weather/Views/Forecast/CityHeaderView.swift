@@ -20,8 +20,6 @@ struct CityHeaderView: View {
                     Image(systemName: forcastViewModel.favCityIcon)
                         .onTapGesture {
                             forcastViewModel.saveFavCity()
-//                            cityViewModel.getAllCities()
-//                            cityViewModel.removeFavCity()
                         }
                 }
                 Text(forcastViewModel.date)

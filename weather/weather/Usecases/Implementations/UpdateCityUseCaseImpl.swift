@@ -15,8 +15,8 @@ struct UpdateCityUseCaseImpl: UpdateCityUseCase {
         self.repository = repository
     }
     
-    func save(city: String) throws {
-        try repository.saveFavCity(city)
+    func toggle(city: String) throws {
+        try repository.toggleCity(city)
     }
     
     func remove(city: String) throws {

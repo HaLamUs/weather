@@ -11,8 +11,8 @@ import Combine
 struct CityRepositoryImpl: CityRepository {
     private let cityDataManager = CityDatabaseManager()
     
-    func saveFavCity(_ city: String) throws {
-        try cityDataManager.saveCity(city)
+    func toggleCity(_ city: String) throws {
+        try cityDataManager.toggleCity(city)
     }
     
     func removeFavCity(_ city: String) throws {

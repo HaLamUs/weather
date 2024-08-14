@@ -116,14 +116,10 @@ extension ForcastViewModel {
             .store(in: &cancellables)
     }
     
-    /*
-     1. TODO: proper handle error
-     2. TODO: Can remove the city
-     */
+    // TODO: proper handle error
     func saveFavCity() {
         do {
-            // remove here if found
-            try updateCityUseCase.save(city: city)
+            try updateCityUseCase.toggle(city: city)
         } catch {
             print(error)
         }

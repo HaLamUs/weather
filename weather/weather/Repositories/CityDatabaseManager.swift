@@ -11,7 +11,7 @@ import Combine
 
 protocol CityDatabaseManagerInterface: DatabaseManager {
     func findCity(_ city: String) -> AnyPublisher<LovedCity?, Error>
-    func saveCity(_ name: String) throws
+    func toggleCity(_ name: String) throws
     func removeCity(_ name: String) throws
 }
 
@@ -21,24 +21,25 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
     
     static let realmClient = try? RealmClient().realm
     
-    func saveCity(_ name: String) throws {
-        try create(initLovedCityModel(name: name))
+    func toggleCity(_ name: String) throws {
+        if let city = search(city: name) {
+            try delete(city)
+        } else {
+            try create(initLovedCityModel(name: name))
+        }
     }
     
     // TODO: handle result return
-    func create(_ object: LovedCity) throws {
-        let city = search(city: object.name)
-        if city == nil {
-            guard let realm = CityDatabaseManager.realmClient else {
-                throw RealmClient.DatabaseError.realmClientUnavailable
+    func create(_ city: LovedCity) throws {
+        guard let realm = CityDatabaseManager.realmClient else {
+            throw RealmClient.DatabaseError.realmClientUnavailable
+        }
+        do {
+            try realm.write {
+                realm.add(city)
             }
-            do {
-                try realm.write {
-                    realm.add(object)
-                }
-            } catch {
-                throw RealmClient.DatabaseError.createFailed
-            }
+        } catch {
+            throw RealmClient.DatabaseError.createFailed
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UpdateCityUseCase {
-    func save(city: String) throws
+    func toggle(city: String) throws
     func remove(city: String) throws
     func fetchAllLovedCities() -> AnyPublisher<[LovedCityDTO], Error>
     func findLovedCity(_ city: String) -> AnyPublisher<LovedCityDTO?, Error>
