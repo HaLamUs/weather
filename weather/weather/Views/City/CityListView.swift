@@ -13,33 +13,26 @@ struct CityListView: View {
     @Binding var tabSelection: Int
     
     var body: some View {
-        ZStack {
+        VStack() {
             if cityViewModel.cities.isEmpty {
                 NoCityView(tabSelection: $tabSelection)
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
+//                    .transition(AnyTransition.opacity.animation(.easeInOut))
             } else {
-                List {
-                    ForEach(cityViewModel.cities) { city in
-                        CityRowView(city: city)
-//                            .onTapGesture {
-//                                withAnimation(.linear(duration: 0.15)) {
-//                                    listViewModel.updateItem(item: city)
-//                                }
-//                            }
+                //                List {
+                ForEach(cityViewModel.cities) { city in
+                    LazyVStack {
+                        CityRowView(cityViewModel: cityViewModel, city: city)
                     }
-                    .onDelete(perform: cityViewModel.deleteItem)
-//                    .onMove(perform: listViewModel.moveItem)
+                    //                    }
+                    //                    .onDelete(perform: cityViewModel.deleteItem)
                 }
-                .listStyle(.plain)
+                //                .listStyle(.plain)
             }
+            Spacer()
+        }
+        .padding()
+        .onAppear {
+            cityViewModel.getCities()
         }
     }
 }
-
-//#Preview {
-//    @State var tabSelection = 1
-//    CityListView(
-//        listViewModel: ListViewModel(),
-//        tabSelection: $tabSelection
-//    )
-//}

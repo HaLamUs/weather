@@ -17,7 +17,6 @@ final class CityViewModel: ObservableObject {
     
     init(updateCityUseCase: UpdateCityUseCase) {
         self.updateCityUseCase = updateCityUseCase
-        getCities()
     }
     
     // TODO: handle error case
@@ -48,6 +47,11 @@ final class CityViewModel: ObservableObject {
         if let city = index.map({ cities[$0].name }).first {
             removeFavCity(city: city)
         }
+    }
+    
+    func deleteCity(_ city: String) {
+        cities.removeAll { $0.name == city }
+        removeFavCity(city: city)
     }
 }
 
