@@ -19,7 +19,11 @@ struct CityRepositoryImpl: CityRepository {
         try cityDataManager.removeCity(city)
     }
     
-    func fetchAll() -> AnyPublisher<[LovedCity], any Error> {
+    func fetchAll() -> AnyPublisher<[LovedCity], Error> {
         cityDataManager.fetchAll()
+    }
+    
+    func findCity(_ city: String) -> AnyPublisher<LovedCity?, Error> {
+        cityDataManager.findCity(city)
     }
 }

@@ -10,6 +10,7 @@ import RealmSwift
 import Combine
 
 protocol CityDatabaseManagerInterface: DatabaseManager {
+    func findCity(_ city: String) -> AnyPublisher<LovedCity?, Error>
     func saveCity(_ name: String) throws
     func removeCity(_ name: String) throws
 }
@@ -17,7 +18,7 @@ protocol CityDatabaseManagerInterface: DatabaseManager {
 // TODO: Make accessing thread safer
 struct CityDatabaseManager: CityDatabaseManagerInterface {
     typealias Entity = LovedCity
-   
+    
     static let realmClient = try? RealmClient().realm
     
     func saveCity(_ name: String) throws {
@@ -60,7 +61,7 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
     func removeCity(_ name: String) throws {
         try delete(initLovedCityModel(name: name))
     }
-
+    
     func delete(_ object: LovedCity) throws {
         if let city = search(city: object.name) {
             guard let realm = CityDatabaseManager.realmClient else {
@@ -74,6 +75,20 @@ struct CityDatabaseManager: CityDatabaseManagerInterface {
                 throw RealmClient.DatabaseError.deleteFailed
             }
         }
+    }
+    
+    func findCity(_ city: String) -> AnyPublisher<LovedCity?, Error> {
+        Future { promise in
+            guard let realm = CityDatabaseManager.realmClient else {
+                return promise(.failure(RealmClient.DatabaseError.realmClientUnavailable))
+            }
+            let lovedCity = realm
+                .objects(LovedCity.self)
+                .filter("name == %@", city)
+                .first
+            promise(.success(lovedCity))
+            
+        }.eraseToAnyPublisher()
     }
 }
 

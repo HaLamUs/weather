@@ -12,4 +12,5 @@ protocol CityRepository {
     func saveFavCity(_ city: String) throws
     func removeFavCity(_ city: String) throws
     func fetchAll() -> AnyPublisher<[LovedCity], Error>
+    func findCity(_ city: String) -> AnyPublisher<LovedCity?, Error>
 }
