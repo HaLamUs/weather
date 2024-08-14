@@ -74,7 +74,7 @@
 		B8C11D622C65284000C091C4 /* nightThunderstorm.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */; };
 		B8C11D672C653A9A00C091C4 /* CityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D662C653A9A00C091C4 /* CityListView.swift */; };
 		B8C11D692C653AAA00C091C4 /* CityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D682C653AAA00C091C4 /* CityRowView.swift */; };
-		B8C11D6B2C653B1000C091C4 /* NoCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D6A2C653B1000C091C4 /* NoCityView.swift */; };
+		B8C11D6B2C653B1000C091C4 /* NoCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D6A2C653B1000C091C4 /* NoCitiesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,7 +176,7 @@
 		B8C11D4F2C65284000C091C4 /* nightThunderstorm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightThunderstorm.json; sourceTree = "<group>"; };
 		B8C11D662C653A9A00C091C4 /* CityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListView.swift; sourceTree = "<group>"; };
 		B8C11D682C653AAA00C091C4 /* CityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRowView.swift; sourceTree = "<group>"; };
-		B8C11D6A2C653B1000C091C4 /* NoCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCityView.swift; sourceTree = "<group>"; };
+		B8C11D6A2C653B1000C091C4 /* NoCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCitiesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,7 +435,7 @@
 				B897F8C52C64026900C80D88 /* LoveCitiesView.swift */,
 				B8C11D662C653A9A00C091C4 /* CityListView.swift */,
 				B8C11D682C653AAA00C091C4 /* CityRowView.swift */,
-				B8C11D6A2C653B1000C091C4 /* NoCityView.swift */,
+				B8C11D6A2C653B1000C091C4 /* NoCitiesView.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -632,7 +632,7 @@
 				B897F8C62C64026900C80D88 /* LoveCitiesView.swift in Sources */,
 				B88EC7882C6A7BA600E7340E /* RealmClient.swift in Sources */,
 				B8C11D302C651AB900C091C4 /* Temperature.swift in Sources */,
-				B8C11D6B2C653B1000C091C4 /* NoCityView.swift in Sources */,
+				B8C11D6B2C653B1000C091C4 /* NoCitiesView.swift in Sources */,
 				B88EC77E2C6A6B6900E7340E /* DateFormattingUseCaseImpl.swift in Sources */,
 				B8C11D342C651AB900C091C4 /* WeatherDetail.swift in Sources */,
 				B8C11D312C651AB900C091C4 /* WeatherDaily.swift in Sources */,

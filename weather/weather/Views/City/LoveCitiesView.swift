@@ -9,19 +9,15 @@ import SwiftUI
 
 struct LoveCitiesView: View {
     @Binding var tabSelection: Int
-    @ObservedObject var listViewModel = ListViewModel()
     @ObservedObject var cityViewModel = Composer.createCityViewModel()
     
     var body: some View {
         CityListView(
-            listViewModel: listViewModel, 
             cityViewModel: cityViewModel,
             tabSelection: $tabSelection
         )
+        .background(
+            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        )
     }
 }
-
-//#Preview {
-//    @State var tabSelection = 1
-//    LoveCitiesView(tabSelection: tabSelection)
-//}

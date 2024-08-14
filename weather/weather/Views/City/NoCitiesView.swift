@@ -1,5 +1,5 @@
 //
-//  NoCityView.swift
+//  NoCitiesView.swift
 //  weather
 //
 //  Created by lamha on 09/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoCityView: View {
+struct NoCitiesView: View {
     @State private var animate = false
     @Binding var tabSelection: Int
     
@@ -17,9 +17,11 @@ struct NoCityView: View {
                 Text("No loved city found!")
                     .font(.title)
                     .fontWeight(.semibold)
+                    .foregroundStyle(.white)
                 
                 Text("Are you a weather person? I think you should click the add button and add a bunch of city to your Fav list")
                     .padding(.bottom, 20)
+                    .foregroundStyle(.white)
                 
                 Text("Save your favorite city 🥳")
                     .foregroundStyle(.white)
