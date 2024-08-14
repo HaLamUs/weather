@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class ForcastViewModel: ObservableObject {
     @Published var weather = WeatherResponse.empty()
@@ -14,13 +15,17 @@ final class ForcastViewModel: ObservableObject {
             Task {
                 await fetchWeather()
             }
+            checkIsLovedCity()
         }
     }
+    @Published var favCityIcon = "heart"
     
     private let fetchWeatherUseCase: FetchWeatherUseCase
     private let updateCityUseCase: UpdateCityUseCase
     private let dateFormattingUseCase: DateFormattingUseCase
     private let weatherDataUseCase: WeatherDataUseCase
+    
+    private var cancellables: Set<AnyCancellable> = .init()
     
     init(fetchWeatherUseCase: FetchWeatherUseCase,
          dateFormattingUseCase: DateFormattingUseCase,
@@ -34,6 +39,7 @@ final class ForcastViewModel: ObservableObject {
         Task {
             await fetchWeather()
         }
+        checkIsLovedCity()
     }
     
     var date: String {
@@ -62,10 +68,6 @@ final class ForcastViewModel: ObservableObject {
     
     var rainChances: String {
         weatherDataUseCase.getRainChances(dewPoint: weather.current.dew_point)
-    }
-    
-    var favCityIcon: String {
-        "heart.fill" //"heart"
     }
     
     func getTimeFor(timestamp: Int) -> String {
@@ -98,14 +100,35 @@ extension ForcastViewModel {
         }
     }
     
-    // TODO: proper handle error
+    private func checkIsLovedCity() {
+        updateCityUseCase.findLovedCity(city)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self else { return }
+                if case let .failure(error) = completion {
+                    favCityIcon = "heart"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { [weak self] lovedCity in
+                guard let self else { return }
+                favCityIcon = lovedCity != nil ? "heart.fill" : "heart"
+            })
+            .store(in: &cancellables)
+    }
+    
+    /*
+     1. TODO: proper handle error
+     2. TODO: Can remove the city
+     */
     func saveFavCity() {
         do {
+            // remove here if found
             try updateCityUseCase.save(city: city)
         } catch {
             print(error)
         }
+        checkIsLovedCity()
     }
-
+    
 }
 
