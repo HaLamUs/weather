@@ -28,13 +28,6 @@ enum Composer {
         )
     }
     
-    static func createCityViewModel2() -> CityViewModel2 {
-        let cityRepository = CityRepositoryImpl()
-        let updateCityUseCase = UpdateCityUseCaseImpl(repository: cityRepository)
-        
-        return CityViewModel2(updateCityUseCase: updateCityUseCase)
-    }
-    
     static func createCityViewModel() -> CityViewModel {
         let inputs = CityViewModel.Inputs(
             fetchCities: PassthroughSubject<Void, Never>(),
