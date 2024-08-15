@@ -43,7 +43,7 @@ struct NoCitiesView: View {
                         tabSelection = 1
                     }
             }
-            .frame(maxWidth: 400) // For Landscape
+            .frame(maxWidth: 400)
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear(perform: addAnimation)
@@ -53,7 +53,7 @@ struct NoCitiesView: View {
     
     func addAnimation() {
         guard !animate else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             withAnimation(
                 .easeInOut(duration: 2.0)
                 .repeatForever()

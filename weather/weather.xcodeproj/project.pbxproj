@@ -296,14 +296,13 @@
 				B88EC7732C6A45A500E7340E /* Usecases */,
 				B88EC76B2C6A43DC00E7340E /* Composers */,
 				B88EC75C2C6A2ED100E7340E /* Repositories */,
-				B8C11D502C65284000C091C4 /* LottieAnimations */,
 				B8C11D072C64DA0600C091C4 /* Views */,
 				B8C11D082C64DA1000C091C4 /* ViewModels */,
 				B8C11D092C64DA3D00C091C4 /* Models */,
 				B8C11D352C651BFB00C091C4 /* Networking */,
 				B897F8922C63F14700C80D88 /* ContentView.swift */,
 				B897F8902C63F14700C80D88 /* weatherApp.swift */,
-				B897F8942C63F14900C80D88 /* Assets.xcassets */,
+				B8A83B232C6E7D180010DEF7 /* Assets */,
 				B897F8962C63F14900C80D88 /* Preview Content */,
 				B8061A4F2C6CCAF1003E8A91 /* Launch Screen.storyboard */,
 				B8A83B212C6DF9580010DEF7 /* Info.plist */,
@@ -334,6 +333,15 @@
 				B897F8AD2C63F14900C80D88 /* weatherUITestsLaunchTests.swift */,
 			);
 			path = weatherUITests;
+			sourceTree = "<group>";
+		};
+		B8A83B232C6E7D180010DEF7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B8C11D502C65284000C091C4 /* LottieAnimations */,
+				B897F8942C63F14900C80D88 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		B8C11D072C64DA0600C091C4 /* Views */ = {
