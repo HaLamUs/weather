@@ -12,8 +12,11 @@ struct CityView: View {
     
     var body: some View {
         VStack {
-            CityHeaderView(forcastViewModel: forcastViewModel)
-                .shadow(radius: 0)
+            CityHeaderView(
+                forcastViewModel: forcastViewModel,
+                output: forcastViewModel.output!
+            )
+            .shadow(radius: 0)
             TodayWeatherView(output: forcastViewModel.output!)
                 .padding()
             HourlyWeatherView(

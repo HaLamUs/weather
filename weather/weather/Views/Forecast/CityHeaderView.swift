@@ -9,28 +9,24 @@ import SwiftUI
 
 struct CityHeaderView: View {
     var forcastViewModel: ForcastViewModel
+    @ObservedObject var output: ForcastViewModel.Outputs
     
     // TODO: fix force cast
     var body: some View {
         HStack {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10) {
                 HStack() {
-                    Text(forcastViewModel.output!.city)
+                    Text(output.city)
                         .font(.title)
                         .bold()
-                    Image(systemName: forcastViewModel.output!.favCityIcon)
+                    Image(systemName: output.favCityIcon)
                         .onTapGesture {
-                            forcastViewModel.input?.saveFavCity.send(forcastViewModel.output!.city)
-//                            forcastViewModel.saveFavCity()
+                            forcastViewModel.input?.saveFavCity.send(output.city)
                         }
                 }
-                Text(forcastViewModel.output!.date)
+                Text(output.date)
             }
             .foregroundColor(.white)
         }
     }
-}
-
-#Preview {
-    CityHeaderView(forcastViewModel: Composer.createForcastViewModel())
 }

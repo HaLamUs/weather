@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var forcastViewModel: ForcastViewModel
+    var forcastViewModel: ForcastViewModel
     @State private var searchTerm = ""
     
+    // TODO: Fix force cast
     var body: some View {
         HStack {
             TextField("", text: $searchTerm)
@@ -24,7 +25,8 @@ struct SearchView: View {
                         .fill(Color.blue)
                 )
                 .onTapGesture {
-                    forcastViewModel.city = searchTerm
+                    forcastViewModel.output!.city = searchTerm // trigger search
+                    forcastViewModel.input?.fetchWeather.send(searchTerm)
                 }
         }
         .foregroundColor(.white)
@@ -38,8 +40,9 @@ struct SearchView: View {
                 .opacity(0.3)
         )
         .onAppear {
-            searchTerm = forcastViewModel.city
-            forcastViewModel.city = searchTerm // trigger update
+            searchTerm = forcastViewModel.output!.city
+            forcastViewModel.input?.fetchWeather.send(searchTerm)
+            //forcastViewModel.output!.city = searchTerm // trigger update
         }
     }
 }

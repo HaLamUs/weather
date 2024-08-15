@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 
+// TODO: Access Realm in bespoke thread
 struct RealmClient {
     private static let schemaVersion: UInt64 = 1
     private var _realm: Realm
