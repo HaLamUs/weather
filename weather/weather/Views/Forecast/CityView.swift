@@ -23,12 +23,12 @@ struct CityView: View {
                 forcastViewModel: forcastViewModel,
                 output: forcastViewModel.output!
             )
-            .padding(.horizontal)
+            .padding()
             DailyWeatherView(
                 forcastViewModel: forcastViewModel,
                 output: forcastViewModel.output!
             )
-            .padding(.horizontal)
+            .padding()
         }
     }
 }
