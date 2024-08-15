@@ -18,7 +18,7 @@ Stay informed and prepared with Weather, your personal weather companion! ğŸŒğŸ
 1. Clone
 
 ```bash
-$ git clone git@github.com:HaLamUs/weather.git
+$ git clone --branch develop https://github.com/HaLamUs/weather.git
 ```
 2. Open Project
 ```bash
