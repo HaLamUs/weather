@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ForecastView: View {
-    @ObservedObject var forcastViewModel: ForcastViewModel
+    var forcastViewModel: ForcastViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
