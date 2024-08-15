@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CityRowView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    var cityViewModel: CityViewModel
     @Binding var tabSelection: Int
     @Binding var searchCityText: String
     

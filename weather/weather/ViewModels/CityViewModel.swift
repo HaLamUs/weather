@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class CityViewModel: ObservableObject {
+final class CityViewModel {
     // Inputs
     struct Inputs {
         let fetchCities: PassthroughSubject<Void, Never>

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoveCitiesView: View {
-    @ObservedObject var cityViewModel = Composer.createCityViewModel()
+    var cityViewModel = Composer.createCityViewModel()
     @Binding var tabSelection: Int
     @Binding var searchCityText: String
     
