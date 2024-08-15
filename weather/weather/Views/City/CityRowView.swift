@@ -27,8 +27,7 @@ struct CityRowView: View {
                         .fill(Color.blue)
                 )
                 .onTapGesture {
-//                    searchCityText = city.name
-                    cityViewModel.deleteCity(city.name)
+                    cityViewModel.input?.deleteCity.send(city.name)
                 }
         }
         .foregroundColor(.white)

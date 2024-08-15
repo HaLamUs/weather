@@ -12,10 +12,12 @@ struct LoveCitiesView: View {
     @Binding var tabSelection: Int
     @Binding var searchCityText: String
     
+    // TODO: fix force cast
     var body: some View {
         CityListView(
-            cityViewModel: cityViewModel,
-            tabSelection: $tabSelection, 
+            cityViewModel: cityViewModel, 
+            output: cityViewModel.output!,
+            tabSelection: $tabSelection,
             searchCityText: $searchCityText
         )
         .background(

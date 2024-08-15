@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 enum Composer {
+    
     static func createForcastViewModel() -> ForcastViewModel {
         let repository = WeatherRepositoryImpl()
         let fetchWeatherUseCase = FetchWeatherUseCaseImpl(repository: repository)
@@ -26,11 +28,25 @@ enum Composer {
         )
     }
     
-    static func createCityViewModel() -> CityViewModel {
+    static func createCityViewModel2() -> CityViewModel2 {
         let cityRepository = CityRepositoryImpl()
         let updateCityUseCase = UpdateCityUseCaseImpl(repository: cityRepository)
         
-        return CityViewModel(updateCityUseCase: updateCityUseCase)
+        return CityViewModel2(updateCityUseCase: updateCityUseCase)
+    }
+    
+    static func createCityViewModel() -> CityViewModel {
+        let inputs = CityViewModel.Inputs(
+            fetchCities: PassthroughSubject<Void, Never>(),
+            deleteCity: PassthroughSubject<String, Never>()
+        )
+        let cityRepository = CityRepositoryImpl()
+        let updateCityUseCase = UpdateCityUseCaseImpl(repository: cityRepository)
+        let viewModel = CityViewModel(updateCityUseCase: updateCityUseCase)
+        let output = viewModel.transform(inputs: inputs)
+        viewModel.input = inputs
+        viewModel.output = output
+        return viewModel
     }
 }
 

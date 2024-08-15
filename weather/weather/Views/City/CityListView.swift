@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct CityListView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    var cityViewModel: CityViewModel
+    @ObservedObject var output: CityViewModel.Outputs
+    
     @Binding var tabSelection: Int
     @Binding var searchCityText: String
     
     var body: some View {
         VStack() {
-            if cityViewModel.cities.isEmpty {
+            if output.cities.isEmpty {
                 NoCitiesView(tabSelection: $tabSelection)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             } else {
@@ -22,11 +24,11 @@ struct CityListView: View {
                     .foregroundStyle(.white)
                     .font(.title)
                     .bold()
-                ForEach(cityViewModel.cities) { city in
+                ForEach(output.cities) { city in
                     LazyVStack {
                         CityRowView(
                             cityViewModel: cityViewModel,
-                            tabSelection: $tabSelection, 
+                            tabSelection: $tabSelection,
                             searchCityText: $searchCityText,
                             city: city)
                     }
@@ -36,7 +38,7 @@ struct CityListView: View {
         }
         .padding()
         .onAppear {
-            cityViewModel.getCities()
+            cityViewModel.input?.fetchCities.send()
         }
     }
 }
