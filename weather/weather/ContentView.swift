@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabSelection = 1
+    @ObservedObject var forcastViewModel = Composer.createForcastViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $tabSelection) {
+            ForecastView(forcastViewModel: forcastViewModel)
+                .tabItem {
+                    Label("Forecast", systemImage: "cloud.sun.fill")
+                }
+                .tag(1)
+            LoveCitiesView(
+                tabSelection: $tabSelection,
+                searchCityText: $forcastViewModel.city)
+                .tabItem {
+                    Label("Love cities", systemImage: "heart")
+                }
+                .tag(2)
         }
-        .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
