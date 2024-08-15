@@ -53,6 +53,11 @@ $ echo "your-openweathermap-token" > .access_tokens/openweathermap
 Update later 
 
 
+## Author
+
+This repo was developed by [@lamha](https://github.com/HaLamUs).
+
+Follow or connect with me on [LinkedIn](https://www.linkedin.com/in/lamhacs). 
 
 
 
