@@ -8,17 +8,30 @@
 import Foundation
 import Combine
 
-final class ForcastViewModel: ObservableObject {
-    @Published var weather = WeatherResponse.empty()
-    @Published var city: String = "Ho Chi Minh" {
-        didSet {
-            Task {
-                await fetchWeather()
-            }
-            checkIsLovedCity()
-        }
+final class ForcastViewModel {
+    // Inputs
+    struct Inputs {
+        let fetchWeather: PassthroughSubject<String, Never>
+        let city: PassthroughSubject<String, Never>
+        let saveFavCity: PassthroughSubject<String, Never>
     }
-    @Published var favCityIcon = "heart"
+    
+    // Outputs
+    final class Outputs: ObservableObject {
+        @Published var weather = WeatherResponse.empty()
+        @Published var favCityIcon = "heart"
+        @Published var city: String = "Ho Chi Minh"
+        var date: String = ""
+        var weatherAnimation: String = ""
+        var temperature: String = ""
+        var conditions: String = ""
+        var windSpeed: String = ""
+        var humidity: String = ""
+        var rainChances: String = ""
+    }
+    
+    var output: Outputs!
+    var input: Inputs?
     
     private let fetchWeatherUseCase: FetchWeatherUseCase
     private let updateCityUseCase: UpdateCityUseCase
@@ -36,40 +49,83 @@ final class ForcastViewModel: ObservableObject {
         self.dateFormattingUseCase = dateFormattingUseCase
         self.weatherDataUseCase = weatherDataUseCase
         self.updateCityUseCase = updateCityUseCase
-        Task {
-            await fetchWeather()
+    }
+    
+    func transform(inputs: Inputs) -> Outputs {
+        let output = Outputs()
+        // Handle fetch weather input
+        inputs.fetchWeather
+            .sink{ [weak self] city in
+                guard let self else { return }
+                Task {
+                    do {
+                        let weather = try await self.fetchWeatherUseCase.execute(for: city)
+                        await MainActor.run {
+                            output.city = city
+                            self.fillOutput(weather: weather)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+                self.checkIsLovedCity(city: city)
+            }
+            .store(in: &cancellables)
+        
+        // Handle save favorite city input
+        inputs.saveFavCity
+            .sink { [weak self] _ in
+                guard let self else { return }
+                saveFavCity(city: output.city)
+            }
+            .store(in: &cancellables)
+        
+        return output
+    }
+}
+
+extension ForcastViewModel {
+    // TODO: proper handle error
+    private func saveFavCity(city: String) {
+        do {
+            try updateCityUseCase.toggle(city: city)
+        } catch {
+            print(error)
         }
-        checkIsLovedCity()
+        checkIsLovedCity(city: city)
     }
     
-    var date: String {
-        dateFormattingUseCase.formatDate(timestamp: weather.current.dt)
+    private func checkIsLovedCity(city: String) {
+        updateCityUseCase.findLovedCity(city)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self else { return }
+                if case let .failure(error) = completion {
+                    output?.favCityIcon = "heart"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { [weak self] lovedCity in
+                guard let self else { return }
+                output?.favCityIcon = lovedCity != nil ? "heart.fill" : "heart"
+            })
+            .store(in: &cancellables)
     }
     
-    var weatherAnimation: String {
-        weatherDataUseCase.getWeatherAnimation(weather: weather)
+    private func fillOutput(weather: WeatherResponse) {
+        output?.weather = weather
+        output?.date = dateFormattingUseCase.formatDate(timestamp: weather.current.dt)
+        
+        output?.weatherAnimation = weatherDataUseCase.getWeatherAnimation(weather: weather)
+        output?.temperature = weatherDataUseCase.getTemperature(temp: weather.current.temp)
+        output?.conditions = weatherDataUseCase.getConditions(weather: weather)
+        output?.windSpeed = weatherDataUseCase.getWindSpeed(windSpeed: weather.current.wind_speed)
+        output?.humidity = weatherDataUseCase.getHumidity(humidity: weather.current.humidity)
+        output?.rainChances = weatherDataUseCase.getRainChances(dewPoint: weather.current.dew_point)
+        
     }
-    
-    var temperature: String {
-        weatherDataUseCase.getTemperature(temp: weather.current.temp)
-    }
-    
-    var conditions: String {
-        weatherDataUseCase.getConditions(weather: weather)
-    }
-    
-    var windSpeed: String {
-        weatherDataUseCase.getWindSpeed(windSpeed: weather.current.wind_speed)
-    }
-    
-    var humidity: String {
-        weatherDataUseCase.getHumidity(humidity: weather.current.humidity)
-    }
-    
-    var rainChances: String {
-        weatherDataUseCase.getRainChances(dewPoint: weather.current.dew_point)
-    }
-    
+}
+
+extension ForcastViewModel {
     func getTimeFor(timestamp: Int) -> String {
         dateFormattingUseCase.formatTime(timestamp: timestamp)
     }
@@ -87,44 +143,4 @@ final class ForcastViewModel: ObservableObject {
     }
 }
 
-extension ForcastViewModel {
-    // TODO: proper handle error
-    private func fetchWeather() async {
-        do {
-            let response = try await fetchWeatherUseCase.execute(for: city)
-            DispatchQueue.main.async {
-                self.weather = response
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    private func checkIsLovedCity() {
-        updateCityUseCase.findLovedCity(city)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                guard let self else { return }
-                if case let .failure(error) = completion {
-                    favCityIcon = "heart"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }, receiveValue: { [weak self] lovedCity in
-                guard let self else { return }
-                favCityIcon = lovedCity != nil ? "heart.fill" : "heart"
-            })
-            .store(in: &cancellables)
-    }
-    
-    // TODO: proper handle error
-    func saveFavCity() {
-        do {
-            try updateCityUseCase.toggle(city: city)
-        } catch {
-            print(error)
-        }
-        checkIsLovedCity()
-    }
-    
-}
 

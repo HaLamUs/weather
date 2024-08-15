@@ -20,12 +20,24 @@ enum Composer {
         let dateFormattingUseCase = DateFormattingUseCaseImpl()
         let weatherDataUseCase = WeatherDataUseCaseImpl()
         
-        return ForcastViewModel(
+        
+        let inputs = ForcastViewModel.Inputs(
+            fetchWeather: PassthroughSubject<String, Never>(),
+            city: PassthroughSubject<String, Never>(),
+            saveFavCity: PassthroughSubject<String, Never>()
+        )
+        
+        let vm = ForcastViewModel(
             fetchWeatherUseCase: fetchWeatherUseCase,
             dateFormattingUseCase: dateFormattingUseCase,
             weatherDataUseCase: weatherDataUseCase,
             updateCityUseCase: updateCityUseCase
         )
+        let output = vm.transform(inputs: inputs)
+        vm.input = inputs
+        vm.output = output
+        
+        return vm
     }
     
     static func createCityViewModel() -> CityViewModel {

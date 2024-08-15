@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var tabSelection = 1
-    @ObservedObject var forcastViewModel = Composer.createForcastViewModel()
+    @State var forcastViewModel = Composer.createForcastViewModel()
     
+    // TODO: Fix force cast
     var body: some View {
         TabView(selection: $tabSelection) {
             ForecastView(forcastViewModel: forcastViewModel)
@@ -20,7 +21,7 @@ struct ContentView: View {
                 .tag(1)
             LoveCitiesView(
                 tabSelection: $tabSelection,
-                searchCityText: $forcastViewModel.city)
+                searchCityText: $forcastViewModel.output.city)
                 .tabItem {
                     Label("Love cities", systemImage: "heart")
                 }
