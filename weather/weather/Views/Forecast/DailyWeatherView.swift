@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DailyWeatherView: View {
-    @ObservedObject var forcastViewModel: ForcastViewModel
+    var forcastViewModel: ForcastViewModel
+    @ObservedObject var output: ForcastViewModel.Outputs
     
+    // TODO: Fix force cast
     var body: some View {
-        ForEach(forcastViewModel.weather.daily) { weather in
+        ForEach(output.weather.daily) { weather in
             LazyVStack {
                 dailyCell(weather: weather)
             }
@@ -44,6 +46,6 @@ struct DailyWeatherView: View {
     }
 }
 
-#Preview {
-    DailyWeatherView(forcastViewModel: Composer.createForcastViewModel())
-}
+//#Preview {
+//    DailyWeatherView(forcastViewModel: Composer.createForcastViewModel())
+//}

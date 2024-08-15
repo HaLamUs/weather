@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 enum Composer {
+    
     static func createForcastViewModel() -> ForcastViewModel {
         let repository = WeatherRepositoryImpl()
         let fetchWeatherUseCase = FetchWeatherUseCaseImpl(repository: repository)
@@ -18,19 +20,41 @@ enum Composer {
         let dateFormattingUseCase = DateFormattingUseCaseImpl()
         let weatherDataUseCase = WeatherDataUseCaseImpl()
         
-        return ForcastViewModel(
+        
+        let input = ForcastViewModel.Inputs(
+            fetchWeather: PassthroughSubject<String, Never>(),
+            city: PassthroughSubject<String, Never>(),
+            saveFavCity: PassthroughSubject<String, Never>()
+        )
+        
+        let vm = ForcastViewModel(
             fetchWeatherUseCase: fetchWeatherUseCase,
             dateFormattingUseCase: dateFormattingUseCase,
             weatherDataUseCase: weatherDataUseCase,
             updateCityUseCase: updateCityUseCase
         )
+        let output = vm.transform(inputs: input)
+        vm.input = input
+        vm.output = output
+        
+        return vm
     }
     
     static func createCityViewModel() -> CityViewModel {
+        let input = CityViewModel.Inputs(
+            fetchCities: PassthroughSubject<Void, Never>(),
+            deleteCity: PassthroughSubject<String, Never>()
+        )
         let cityRepository = CityRepositoryImpl()
         let updateCityUseCase = UpdateCityUseCaseImpl(repository: cityRepository)
         
-        return CityViewModel(updateCityUseCase: updateCityUseCase)
+        let vm = CityViewModel(updateCityUseCase: updateCityUseCase)
+        let output = vm.transform(inputs: input)
+        
+        vm.input = input
+        vm.output = output
+        
+        return vm
     }
 }
 

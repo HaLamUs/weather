@@ -52,8 +52,7 @@
 		B8C11D322C651AB900C091C4 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2D2C651AB900C091C4 /* WeatherResponse.swift */; };
 		B8C11D332C651AB900C091C4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2E2C651AB900C091C4 /* Weather.swift */; };
 		B8C11D342C651AB900C091C4 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2F2C651AB900C091C4 /* WeatherDetail.swift */; };
-		B8C11D3A2C651C2300C091C4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D362C651C2300C091C4 /* Api.swift */; };
-		B8C11D3B2C651C2300C091C4 /* Api+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D372C651C2300C091C4 /* Api+Extensions.swift */; };
+		B8C11D3A2C651C2300C091C4 /* OpenWeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */; };
 		B8C11D3D2C651C2300C091C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D392C651C2300C091C4 /* NetworkManager.swift */; };
 		B8C11D512C65284000C091C4 /* dayBrokenClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */; };
 		B8C11D522C65284000C091C4 /* dayClearSky.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3F2C65284000C091C4 /* dayClearSky.json */; };
@@ -142,6 +141,7 @@
 		B897F8AD2C63F14900C80D88 /* weatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B897F8C32C64025500C80D88 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		B897F8C52C64026900C80D88 /* LoveCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveCitiesView.swift; sourceTree = "<group>"; };
+		B8A83B212C6DF9580010DEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C11D0A2C64DA7D00C091C4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B8C11D0C2C64DDE700C091C4 /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
 		B8C11D0E2C64DE1200C091C4 /* CityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeaderView.swift; sourceTree = "<group>"; };
@@ -155,8 +155,7 @@
 		B8C11D2D2C651AB900C091C4 /* WeatherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		B8C11D2E2C651AB900C091C4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		B8C11D2F2C651AB900C091C4 /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
-		B8C11D362C651C2300C091C4 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		B8C11D372C651C2300C091C4 /* Api+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Api+Extensions.swift"; sourceTree = "<group>"; };
+		B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherEndpoint.swift; sourceTree = "<group>"; };
 		B8C11D392C651C2300C091C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayBrokenClouds.json; sourceTree = "<group>"; };
 		B8C11D3F2C65284000C091C4 /* dayClearSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayClearSky.json; sourceTree = "<group>"; };
@@ -307,6 +306,7 @@
 				B897F8942C63F14900C80D88 /* Assets.xcassets */,
 				B897F8962C63F14900C80D88 /* Preview Content */,
 				B8061A4F2C6CCAF1003E8A91 /* Launch Screen.storyboard */,
+				B8A83B212C6DF9580010DEF7 /* Info.plist */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -378,8 +378,7 @@
 		B8C11D352C651BFB00C091C4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B8C11D362C651C2300C091C4 /* Api.swift */,
-				B8C11D372C651C2300C091C4 /* Api+Extensions.swift */,
+				B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */,
 				B8C11D392C651C2300C091C4 /* NetworkManager.swift */,
 			);
 			path = Networking;
@@ -454,6 +453,7 @@
 				B897F88A2C63F14700C80D88 /* Frameworks */,
 				B897F88B2C63F14700C80D88 /* Resources */,
 				B8C11D222C64E27B00C091C4 /* Embed Frameworks */,
+				B8A83B202C6DEED40010DEF7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -597,6 +597,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8A83B202C6DEED40010DEF7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "token_file=.access_tokens/openweathermap\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace OWMAccessToken -string $token $TARGET_BUILD_DIR/$INFOPLIST_PATH\nelse\necho 'error: Missing OpenWeatherMap access token'\nopen 'http://openweathermap.org/appid'\necho \"error: Get an access token from <http://openweathermap.org/appid>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B897F8892C63F14700C80D88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -605,14 +625,13 @@
 				B88EC77C2C6A6B4E00E7340E /* DateFormattingUseCase.swift in Sources */,
 				B88EC75E2C6A2F1200E7340E /* DatabaseInterface.swift in Sources */,
 				B88EC78A2C6A7BEB00E7340E /* CityDatabaseManager.swift in Sources */,
-				B8C11D3A2C651C2300C091C4 /* Api.swift in Sources */,
+				B8C11D3A2C651C2300C091C4 /* OpenWeatherEndpoint.swift in Sources */,
 				B8C11D0B2C64DA7D00C091C4 /* SearchView.swift in Sources */,
 				B8C11D322C651AB900C091C4 /* WeatherResponse.swift in Sources */,
 				B8C11D672C653A9A00C091C4 /* CityListView.swift in Sources */,
 				B88EC78C2C6A832800E7340E /* UpdateCityUseCase.swift in Sources */,
 				B88EC78E2C6A85A900E7340E /* UpdateCityUseCaseImpl.swift in Sources */,
 				B8C11D3D2C651C2300C091C4 /* NetworkManager.swift in Sources */,
-				B8C11D3B2C651C2300C091C4 /* Api+Extensions.swift in Sources */,
 				B88EC7842C6A783800E7340E /* CityRepository.swift in Sources */,
 				B88EC7752C6A45B600E7340E /* FetchWeatherUseCase.swift in Sources */,
 				B8C11D242C64F32700C091C4 /* ForcastViewModel.swift in Sources */,
@@ -808,7 +827,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"weather/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -837,7 +858,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"weather/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

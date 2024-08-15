@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class LovedCity: Object {
+final class LovedCity: Object {
     @Persisted(primaryKey: true) var id: Int = -1
     @Persisted var name: String = ""
 }

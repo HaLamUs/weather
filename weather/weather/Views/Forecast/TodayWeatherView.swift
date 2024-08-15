@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TodayWeatherView: View {
-    @ObservedObject var forcastViewModel: ForcastViewModel
+    @ObservedObject var output: ForcastViewModel.Outputs
     
+    // TODO: Fix force cast
     var body: some View {
         VStack(spacing: 10) {
             Text("Today")
@@ -17,22 +18,22 @@ struct TodayWeatherView: View {
                 .bold()
             
             HStack(spacing: 20) {
-                LottieView(name: forcastViewModel.weatherAnimation)
+                LottieView(name: output.weatherAnimation)
                     .frame(width: 100, height: 100)
                 VStack(alignment: .leading) {
-                    Text("\(forcastViewModel.temperature)℃")
+                    Text("\(output.temperature)℃")
                         .font(.system(size: 42))
-                    Text(forcastViewModel.conditions)
+                    Text(output.conditions)
                 }
             }
             
             HStack {
                 Spacer()
-                widgetView(image: "wind", color: .green, title: "\(forcastViewModel.windSpeed) km/hr")
+                widgetView(image: "wind", color: .green, title: "\(output.windSpeed) km/hr")
                 Spacer()
-                widgetView(image: "drop.fill", color: .blue, title: "\(forcastViewModel.humidity)")
+                widgetView(image: "drop.fill", color: .blue, title: "\(output.humidity)")
                 Spacer()
-                widgetView(image: "umbrella.fill", color: .red, title: "\(forcastViewModel.rainChances)")
+                widgetView(image: "umbrella.fill", color: .red, title: "\(output.rainChances)")
                 Spacer()
             }
         }
@@ -63,6 +64,6 @@ struct TodayWeatherView: View {
     }
 }
 
-#Preview {
-    TodayWeatherView(forcastViewModel: Composer.createForcastViewModel())
-}
+//#Preview {
+//    TodayWeatherView(forcastViewModel: Composer.createForcastViewModel())
+//}

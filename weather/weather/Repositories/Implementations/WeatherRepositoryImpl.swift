@@ -14,7 +14,10 @@ struct WeatherRepositoryImpl: WeatherRepository {
             CLGeocoder().geocodeAddressString(city) { (placemarks, error) in
                 if let places = placemarks, let place = places.first {
                     let coord = place.location?.coordinate
-                    let urlString = Api.getUrlFor(lat: coord?.latitude ?? 0, lon: coord?.longitude ?? 0)
+                    let urlString = OpenWeatherEndpoint.getUrlFor(
+                        lat: coord?.latitude ?? 0,
+                        lon: coord?.longitude ?? 0
+                    )
                     NetworkManager<WeatherResponse>.fetch(for: URL(string: urlString)!) { result in
                         switch result {
                         case .success(let response):

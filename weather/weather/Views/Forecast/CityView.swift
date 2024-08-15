@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct CityView: View {
-    @ObservedObject var forcastViewModel: ForcastViewModel
+    var forcastViewModel: ForcastViewModel
     
     var body: some View {
         VStack {
-            CityHeaderView(forcastViewModel: forcastViewModel)
-                .shadow(radius: 0)
-            TodayWeatherView(forcastViewModel: forcastViewModel)
+            CityHeaderView(
+                forcastViewModel: forcastViewModel,
+                output: forcastViewModel.output!
+            )
+            .shadow(radius: 0)
+            TodayWeatherView(output: forcastViewModel.output!)
                 .padding()
-            HourlyWeatherView(forcastViewModel: forcastViewModel)
-                .padding(.horizontal)
-            DailyWeatherView(forcastViewModel: forcastViewModel)
-                .padding(.horizontal)
+            HourlyWeatherView(
+                forcastViewModel: forcastViewModel,
+                output: forcastViewModel.output!
+            )
+            .padding(.horizontal)
+            DailyWeatherView(
+                forcastViewModel: forcastViewModel,
+                output: forcastViewModel.output!
+            )
+            .padding(.horizontal)
         }
     }
 }

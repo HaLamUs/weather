@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CityRowView: View {
-    @ObservedObject var cityViewModel: CityViewModel
+    var cityViewModel: CityViewModel
     @Binding var tabSelection: Int
     @Binding var searchCityText: String
     
@@ -27,8 +27,7 @@ struct CityRowView: View {
                         .fill(Color.blue)
                 )
                 .onTapGesture {
-//                    searchCityText = city.name
-                    cityViewModel.deleteCity(city.name)
+                    cityViewModel.input?.deleteCity.send(city.name)
                 }
         }
         .foregroundColor(.white)
