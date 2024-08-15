@@ -52,8 +52,7 @@
 		B8C11D322C651AB900C091C4 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2D2C651AB900C091C4 /* WeatherResponse.swift */; };
 		B8C11D332C651AB900C091C4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2E2C651AB900C091C4 /* Weather.swift */; };
 		B8C11D342C651AB900C091C4 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D2F2C651AB900C091C4 /* WeatherDetail.swift */; };
-		B8C11D3A2C651C2300C091C4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D362C651C2300C091C4 /* Api.swift */; };
-		B8C11D3B2C651C2300C091C4 /* Api+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D372C651C2300C091C4 /* Api+Extensions.swift */; };
+		B8C11D3A2C651C2300C091C4 /* OpenWeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */; };
 		B8C11D3D2C651C2300C091C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C11D392C651C2300C091C4 /* NetworkManager.swift */; };
 		B8C11D512C65284000C091C4 /* dayBrokenClouds.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */; };
 		B8C11D522C65284000C091C4 /* dayClearSky.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C11D3F2C65284000C091C4 /* dayClearSky.json */; };
@@ -156,8 +155,7 @@
 		B8C11D2D2C651AB900C091C4 /* WeatherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		B8C11D2E2C651AB900C091C4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		B8C11D2F2C651AB900C091C4 /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
-		B8C11D362C651C2300C091C4 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		B8C11D372C651C2300C091C4 /* Api+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Api+Extensions.swift"; sourceTree = "<group>"; };
+		B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherEndpoint.swift; sourceTree = "<group>"; };
 		B8C11D392C651C2300C091C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B8C11D3E2C65284000C091C4 /* dayBrokenClouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayBrokenClouds.json; sourceTree = "<group>"; };
 		B8C11D3F2C65284000C091C4 /* dayClearSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dayClearSky.json; sourceTree = "<group>"; };
@@ -380,8 +378,7 @@
 		B8C11D352C651BFB00C091C4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B8C11D362C651C2300C091C4 /* Api.swift */,
-				B8C11D372C651C2300C091C4 /* Api+Extensions.swift */,
+				B8C11D362C651C2300C091C4 /* OpenWeatherEndpoint.swift */,
 				B8C11D392C651C2300C091C4 /* NetworkManager.swift */,
 			);
 			path = Networking;
@@ -628,14 +625,13 @@
 				B88EC77C2C6A6B4E00E7340E /* DateFormattingUseCase.swift in Sources */,
 				B88EC75E2C6A2F1200E7340E /* DatabaseInterface.swift in Sources */,
 				B88EC78A2C6A7BEB00E7340E /* CityDatabaseManager.swift in Sources */,
-				B8C11D3A2C651C2300C091C4 /* Api.swift in Sources */,
+				B8C11D3A2C651C2300C091C4 /* OpenWeatherEndpoint.swift in Sources */,
 				B8C11D0B2C64DA7D00C091C4 /* SearchView.swift in Sources */,
 				B8C11D322C651AB900C091C4 /* WeatherResponse.swift in Sources */,
 				B8C11D672C653A9A00C091C4 /* CityListView.swift in Sources */,
 				B88EC78C2C6A832800E7340E /* UpdateCityUseCase.swift in Sources */,
 				B88EC78E2C6A85A900E7340E /* UpdateCityUseCaseImpl.swift in Sources */,
 				B8C11D3D2C651C2300C091C4 /* NetworkManager.swift in Sources */,
-				B8C11D3B2C651C2300C091C4 /* Api+Extensions.swift in Sources */,
 				B88EC7842C6A783800E7340E /* CityRepository.swift in Sources */,
 				B88EC7752C6A45B600E7340E /* FetchWeatherUseCase.swift in Sources */,
 				B8C11D242C64F32700C091C4 /* ForcastViewModel.swift in Sources */,
